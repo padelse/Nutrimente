@@ -1,10 +1,32 @@
 let RECIPES = {};
 let PLANS = {};
 let selectedPlanId = "week-1";
-let currentDayIndex = 0;
+let selectedDayIndex = 0;
+let recipeFilter = "all";
+const FAVORITES_KEY = "nutrimente-favorites-v1";
 
 const $ = id => document.getElementById(id);
 const dayNames = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+const filterLabels = {
+  all: "Todas",
+  "almuerzo-entrante": "Almuerzo · entrante",
+  "almuerzo-principal": "Almuerzo · principal",
+  "cena-entrante": "Cena · entrante",
+  "cena-principal": "Cena · principal"
+};
+
+function getTodayIndex() {
+  return (new Date().getDay() + 6) % 7;
+}
+
+function getFavorites() {
+  try { return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+
+function saveFavorites(set) {
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...set]));
+}
 
 async function loadData() {
   const [recipesResponse, plansResponse] = await Promise.all([
@@ -19,17 +41,17 @@ async function loadData() {
   if (!PLANS[selectedPlanId]) selectedPlanId = available[0];
 
   fillPlanSelectors();
-  currentDayIndex = (new Date().getDay() + 6) % 7;
-  renderWeek();
+  selectedDayIndex = getTodayIndex();
+  renderWeek(false);
   renderToday();
   renderRecipes();
+  renderFavorites();
 }
 
 function fillPlanSelectors() {
   const options = Object.values(PLANS).map(p =>
     `<option value="${p.id}">${escapeHtml(p.name)}</option>`
   ).join("");
-
   $("planSelect").innerHTML = options;
   $("todayPlanSelect").innerHTML = options;
   $("planSelect").value = selectedPlanId;
@@ -38,18 +60,16 @@ function fillPlanSelectors() {
 
 function getPlan() { return PLANS[selectedPlanId]; }
 
-function renderWeek() {
+function renderWeek(scrollToSelected = false) {
   const plan = getPlan();
   const days = plan.days;
-
-  $("weekLabel").textContent = `${dayNames[currentDayIndex]} · ${currentDayIndex + 1}/7`;
+  $("weekLabel").textContent = `${dayNames[selectedDayIndex]}`;
 
   $("weekGrid").innerHTML = days.map((day, i) => `
-    <article class="day-card ${i === currentDayIndex ? "today" : ""}" id="day-${i}">
+    <article class="day-card ${i === selectedDayIndex ? "selected-day" : ""}" id="day-${i}">
       <div class="day-head">
         <div>
           <div class="day-name">${escapeHtml(day.name)}</div>
-          ${i === currentDayIndex ? '<div class="today-mark">HOY</div>' : ""}
         </div>
       </div>
       ${renderMealGroup("🍽️ Comida", day.comida)}
@@ -58,7 +78,11 @@ function renderWeek() {
   `).join("");
 
   bindRecipeButtons();
-  $("day-" + currentDayIndex)?.scrollIntoView({behavior:"smooth", block:"nearest"});
+  if (scrollToSelected) {
+    requestAnimationFrame(() => {
+      $("day-" + selectedDayIndex)?.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  }
 }
 
 function renderMealGroup(title, recipeIds) {
@@ -73,14 +97,19 @@ function renderMealGroup(title, recipeIds) {
 function recipeButton(id) {
   const recipe = RECIPES[id];
   if (!recipe) return "";
-  return `<button class="recipe-link" data-recipe="${escapeHtml(id)}">
-    <span>${escapeHtml(recipe.name)}</span><span class="chevron">›</span>
-  </button>`;
+  const favorite = getFavorites().has(id);
+  return `<div class="recipe-row">
+    <button class="recipe-link" data-recipe="${escapeHtml(id)}">
+      <span>${escapeHtml(recipe.name)}</span><span class="chevron">›</span>
+    </button>
+    <button class="favorite-button ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
+  </div>`;
 }
 
 function renderToday() {
   const plan = getPlan();
-  const day = plan.days[currentDayIndex];
+  const todayIndex = getTodayIndex();
+  const day = plan.days[todayIndex];
   $("todayDate").textContent = day.name;
   $("todayContent").innerHTML =
     renderMealGroup("🍽️ Comida", day.comida) +
@@ -88,43 +117,84 @@ function renderToday() {
   bindRecipeButtons();
 }
 
+function recipeMatches(recipe, query) {
+  const haystack = [recipe.name, ...(recipe.ingredients || [])].join(" ").toLocaleLowerCase("es");
+  return !query || haystack.includes(query);
+}
+
 function renderRecipes() {
   const query = $("recipeSearch").value.trim().toLocaleLowerCase("es");
   const matches = Object.entries(RECIPES)
     .filter(([id, r]) => {
-      const haystack = [
-        r.name,
-        ...(r.ingredients || [])
-      ].join(" ").toLocaleLowerCase("es");
-      return !query || haystack.includes(query);
+      const inGroup = recipeFilter === "all" || (r.groups || []).includes(recipeFilter);
+      return inGroup && recipeMatches(r, query);
     })
     .sort((a,b) => a[1].name.localeCompare(b[1].name, "es"));
 
-  $("recipeCount").textContent = query
+  $("recipeCount").textContent = query || recipeFilter !== "all"
     ? `${matches.length} resultado${matches.length === 1 ? "" : "s"}`
     : `${matches.length} recetas`;
-
-  $("recipeList").innerHTML = matches.map(([id]) => recipeButton(id)).join("");
+  $("recipeList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState("No hay recetas que coincidan.");
   bindRecipeButtons();
+}
+
+function renderFavorites() {
+  const query = $("favoriteSearch").value.trim().toLocaleLowerCase("es");
+  const favorites = getFavorites();
+  const matches = Object.entries(RECIPES)
+    .filter(([id, r]) => favorites.has(id) && recipeMatches(r, query))
+    .sort((a,b) => a[1].name.localeCompare(b[1].name, "es"));
+
+  $("favoriteCount").textContent = `${matches.length} favorito${matches.length === 1 ? "" : "s"}`;
+  $("favoriteList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState(favorites.size ? "No hay favoritos que coincidan con la búsqueda." : "Todavía no has marcado ninguna receta como favorita.");
+  bindRecipeButtons();
+}
+
+function emptyState(text) { return `<div class="empty-state">${escapeHtml(text)}</div>`; }
+
+function toggleFavorite(id) {
+  const favorites = getFavorites();
+  if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
+  saveFavorites(favorites);
+  renderRecipes();
+  renderFavorites();
+  if ($("recipeContent").dataset.recipeId === id) showRecipe(id);
 }
 
 function showRecipe(id) {
   const r = RECIPES[id];
   if (!r) return;
-
+  const favorite = getFavorites().has(id);
+  const groups = (r.groups || []).map(g => filterLabels[g]).filter(Boolean);
+  $("recipeContent").dataset.recipeId = id;
   $("recipeContent").innerHTML = `
-    <h2>${escapeHtml(r.name)}</h2>
+    <div class="recipe-detail-head">
+      <h2>${escapeHtml(r.name)}</h2>
+      <button class="detail-favorite ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
+    </div>
+    ${groups.length ? `<div class="recipe-tags">${groups.map(g => `<span>${escapeHtml(g)}</span>`).join("")}</div>` : ""}
     <h3>Ingredientes</h3>
     <ul>${(r.ingredients || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
     <h3>Elaboración</h3>
     <p>${escapeHtml(r.preparation || "No hay elaboración registrada en el plan.")}</p>
   `;
+  bindFavoriteButtons();
   showView("recipeView");
 }
 
 function bindRecipeButtons() {
   document.querySelectorAll("[data-recipe]").forEach(button => {
     button.onclick = () => showRecipe(button.dataset.recipe);
+  });
+  bindFavoriteButtons();
+}
+
+function bindFavoriteButtons() {
+  document.querySelectorAll("[data-favorite]").forEach(button => {
+    button.onclick = event => {
+      event.stopPropagation();
+      toggleFavorite(button.dataset.favorite);
+    };
   });
 }
 
@@ -141,9 +211,14 @@ function changePlan(id) {
   selectedPlanId = id;
   $("planSelect").value = id;
   $("todayPlanSelect").value = id;
-  currentDayIndex = (new Date().getDay() + 6) % 7;
-  renderWeek();
+  renderWeek(false);
   renderToday();
+}
+
+function goToToday() {
+  const todayIndex = getTodayIndex();
+  renderToday();
+  showView("todayView");
 }
 
 function escapeHtml(value) {
@@ -156,26 +231,32 @@ $("planSelect").addEventListener("change", e => changePlan(e.target.value));
 $("todayPlanSelect").addEventListener("change", e => changePlan(e.target.value));
 
 $("prevDay").onclick = () => {
-  currentDayIndex = (currentDayIndex + 6) % 7;
-  renderWeek();
+  selectedDayIndex = (selectedDayIndex + 6) % 7;
+  renderWeek(true);
 };
 $("nextDay").onclick = () => {
-  currentDayIndex = (currentDayIndex + 1) % 7;
-  renderWeek();
+  selectedDayIndex = (selectedDayIndex + 1) % 7;
+  renderWeek(true);
 };
-$("todayBtn").onclick = () => {
-  currentDayIndex = (new Date().getDay() + 6) % 7;
-  renderToday();
-  showView("todayView");
-};
+$("todayBtn").onclick = goToToday;
 $("recipeSearch").addEventListener("input", renderRecipes);
+$("favoriteSearch").addEventListener("input", renderFavorites);
 $("backRecipe").onclick = () => showView("recipesView");
+
+$("recipeFilters").querySelectorAll("[data-filter]").forEach(button => {
+  button.onclick = () => {
+    recipeFilter = button.dataset.filter;
+    $("recipeFilters").querySelectorAll("[data-filter]").forEach(b => b.classList.toggle("active", b === button));
+    renderRecipes();
+  };
+});
 
 document.querySelectorAll(".nav-item").forEach(button => {
   button.onclick = () => {
     const view = button.dataset.view;
     if (view === "todayView") renderToday();
     if (view === "recipesView") renderRecipes();
+    if (view === "favoritesView") renderFavorites();
     showView(view);
   };
 });

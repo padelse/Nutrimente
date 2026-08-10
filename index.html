@@ -6,17 +6,17 @@
   <meta name="theme-color" content="#f7f5ef">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mi Plan">
+  <meta name="apple-mobile-web-app-title" content="Nutrimente">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-180.png">
   <link rel="stylesheet" href="styles.css">
-  <title>Mi Plan Nutricional</title>
+  <title>Nutrimente</title>
 </head>
 <body>
 <header class="topbar">
   <div>
     <div class="eyebrow">PLAN NUTRICIONAL</div>
-    <h1>Mi Plan</h1>
+    <h1>Nutrimente</h1>
   </div>
   <button class="today-button" id="todayBtn">Hoy</button>
 </header>
@@ -53,12 +53,32 @@
       <span>⌕</span>
       <input id="recipeSearch" type="search" placeholder="Buscar receta o ingrediente…" autocomplete="off">
     </div>
+    <div class="recipe-filters" id="recipeFilters">
+      <button class="filter-chip active" data-filter="all">Todas</button>
+      <button class="filter-chip" data-filter="almuerzo-entrante">Almuerzo · entrante</button>
+      <button class="filter-chip" data-filter="almuerzo-principal">Almuerzo · principal</button>
+      <button class="filter-chip" data-filter="cena-entrante">Cena · entrante</button>
+      <button class="filter-chip" data-filter="cena-principal">Cena · principal</button>
+    </div>
     <div id="recipeCount" class="result-count"></div>
     <div id="recipeList"></div>
   </section>
 
+  <section id="favoritesView" class="view">
+    <div class="favorites-heading">
+      <div class="eyebrow">MIS RECETAS</div>
+      <h2>Favoritos</h2>
+    </div>
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="favoriteSearch" type="search" placeholder="Buscar en favoritos…" autocomplete="off">
+    </div>
+    <div id="favoriteCount" class="result-count"></div>
+    <div id="favoriteList"></div>
+  </section>
+
   <section id="recipeView" class="view">
-    <button class="back" id="backRecipe">← Volver a recetas</button>
+    <button class="back" id="backRecipe">← Volver</button>
     <article id="recipeContent" class="recipe"></article>
   </section>
 </main>
@@ -67,6 +87,7 @@
   <button class="nav-item active" data-view="weekView">📅<span>Plan</span></button>
   <button class="nav-item" data-view="todayView">☀️<span>Hoy</span></button>
   <button class="nav-item" data-view="recipesView">🔎<span>Recetas</span></button>
+  <button class="nav-item" data-view="favoritesView">★<span>Favoritos</span></button>
 </nav>
 
 <script src="app.js"></script>
