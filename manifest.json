@@ -1,0 +1,16 @@
+{
+  "name": "Mi Plan Nutricional",
+  "short_name": "Mi Plan",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f7f5ef",
+  "theme_color": "#f7f5ef",
+  "lang": "es-ES",
+  "icons": [
+    {
+      "src": "icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

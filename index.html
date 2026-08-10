@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mi Plan">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Mi Plan Nutricional</title>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">PLAN NUTRICIONAL</div>
+    <h1>Mi Plan</h1>
+  </div>
+  <button class="today-button" id="todayBtn">Hoy</button>
+</header>
+
+<main>
+  <section id="weekView" class="view active">
+    <div class="selector-card">
+      <label for="planSelect">Plan semanal</label>
+      <select id="planSelect"></select>
+    </div>
+
+    <div class="week-nav">
+      <button id="prevDay" aria-label="Día anterior">‹</button>
+      <div id="weekLabel"></div>
+      <button id="nextDay" aria-label="Día siguiente">›</button>
+    </div>
+
+    <div id="weekGrid"></div>
+  </section>
+
+  <section id="todayView" class="view">
+    <div class="selector-card">
+      <label for="todayPlanSelect">Plan semanal</label>
+      <select id="todayPlanSelect"></select>
+    </div>
+    <div class="today-card">
+      <div class="today-date" id="todayDate"></div>
+      <div id="todayContent"></div>
+    </div>
+  </section>
+
+  <section id="recipesView" class="view">
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="recipeSearch" type="search" placeholder="Buscar receta o ingrediente…" autocomplete="off">
+    </div>
+    <div id="recipeCount" class="result-count"></div>
+    <div id="recipeList"></div>
+  </section>
+
+  <section id="recipeView" class="view">
+    <button class="back" id="backRecipe">← Volver a recetas</button>
+    <article id="recipeContent" class="recipe"></article>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" data-view="weekView">📅<span>Plan</span></button>
+  <button class="nav-item" data-view="todayView">☀️<span>Hoy</span></button>
+  <button class="nav-item" data-view="recipesView">🔎<span>Recetas</span></button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

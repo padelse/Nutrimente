@@ -1,0 +1,48 @@
+
+:root {
+  --bg:#f7f5ef; --card:#fff; --text:#20201d; --muted:#77736b;
+  --accent:#4e7455; --accent2:#e7efe6; --border:#e7e2d8;
+  --shadow:0 5px 18px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+color:var(--text);background:var(--bg);min-height:100vh}
+button,select,input{font:inherit}
+.topbar{padding:calc(18px + env(safe-area-inset-top)) 18px 12px;display:flex;align-items:center;justify-content:space-between}
+.eyebrow{font-size:11px;letter-spacing:1.4px;color:var(--muted);font-weight:800}
+h1{font-size:28px;line-height:1.1;margin:5px 0 0}
+main{max-width:760px;margin:auto;padding:0 14px 100px}
+.view{display:none}.view.active{display:block}
+.selector-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:12px 14px;margin:6px 0 14px;box-shadow:var(--shadow)}
+.selector-card label{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:800;margin-bottom:5px}
+.selector-card select{width:100%;border:0;background:transparent;color:var(--text);font-weight:750;outline:0;padding:2px 0}
+.today-button{border:0;background:var(--accent);color:#fff;font-weight:800;border-radius:12px;padding:10px 14px}
+.week-nav{display:flex;align-items:center;justify-content:space-between;margin:4px 0 12px}
+.week-nav button{border:0;background:var(--card);width:42px;height:42px;border-radius:14px;font-size:28px;box-shadow:var(--shadow)}
+#weekLabel{font-weight:800}
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}
+.day-card.today{outline:2px solid var(--accent)}
+.day-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.day-name{font-size:20px;font-weight:850}
+.today-mark{color:var(--accent);font-size:11px;font-weight:850;margin-top:3px}
+.meal-group{margin-top:12px}.meal-title{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:850;margin-bottom:6px}
+.recipe-link{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;border:0;background:var(--accent2);border-radius:13px;padding:12px 13px;margin:6px 0;font-size:15px;font-weight:650;color:var(--text)}
+.chevron{font-size:22px;color:var(--accent);margin-left:12px}
+.today-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.today-date{font-size:22px;font-weight:850;margin-bottom:14px}
+.search-box{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:0 13px;box-shadow:var(--shadow)}
+.search-box span{font-size:24px;color:var(--muted)}
+.search-box input{width:100%;border:0;outline:0;background:transparent;padding:13px 0;font-size:16px}
+.result-count{font-size:12px;color:var(--muted);font-weight:750;margin:12px 3px}
+.recipe{background:var(--card);border-radius:22px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.recipe h2{font-size:26px;margin:0 0 16px;line-height:1.12}
+.recipe h3{font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:22px 0 9px;color:var(--accent)}
+.recipe ul{padding-left:20px;line-height:1.6}.recipe p{line-height:1.6;white-space:pre-line}
+.back{border:0;background:none;color:var(--accent);font-weight:750;padding:4px 0 14px;font-size:16px}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;padding:8px 18px calc(8px + env(safe-area-inset-bottom));
+display:flex;justify-content:center;gap:8px;background:rgba(247,245,239,.94);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
+.nav-item{flex:1;max-width:180px;border:0;background:transparent;padding:7px;color:var(--muted);font-size:19px}
+.nav-item span{display:block;font-size:11px;margin-top:2px;font-weight:750}.nav-item.active{color:var(--accent)}
+.error{padding:40px 22px}
+@media(min-width:650px){#weekGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 10px}.day-card{margin:6px 0}}

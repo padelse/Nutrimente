@@ -1,0 +1,93 @@
+{
+  "week-1": {
+    "id": "week-1",
+    "name": "Semana 1",
+    "description": "Plan nutricional del documento original.",
+    "days": [
+      {
+        "day": 1,
+        "name": "Lunes",
+        "comida": [
+          "salmorejo-remolacha",
+          "ensalada-garbanzos-feta-aceitunas"
+        ],
+        "cena": [
+          "aliño-tomates-oregano",
+          "tostas-revuelto-bacalao"
+        ]
+      },
+      {
+        "day": 2,
+        "name": "Martes",
+        "comida": [
+          "salmorejo-remolacha",
+          "aliño-patatas-caballa"
+        ],
+        "cena": [
+          "humus-bastoncitos-zanahoria",
+          "brocoli-sardinas-huevo"
+        ]
+      },
+      {
+        "day": 3,
+        "name": "Miércoles",
+        "comida": [
+          "batido-melon-pepino-yogur",
+          "ensalada-lentejas-mango-langostinos"
+        ],
+        "cena": [
+          "escalivada-conserva",
+          "filetes-pollo-oregano"
+        ]
+      },
+      {
+        "day": 4,
+        "name": "Jueves",
+        "comida": [
+          "arroz-integral",
+          "salteado-verduras-salmon"
+        ],
+        "cena": [
+          "pepininillos",
+          "revuelto-trigueros-gambas"
+        ]
+      },
+      {
+        "day": 5,
+        "name": "Viernes",
+        "comida": [
+          "arroz-integral",
+          "wok-verduras-pollo"
+        ],
+        "cena": [
+          "ensalada-remolacha-feta-pistachos",
+          "mejillones-vapor-limon-hierbas"
+        ]
+      },
+      {
+        "day": 6,
+        "name": "Sábado",
+        "comida": [
+          "verduras-asadas-horno",
+          "atun-encebollado-nutrimente"
+        ],
+        "cena": [
+          "guacamole-casero",
+          "fajitas-maiz-calabacin-carne"
+        ]
+      },
+      {
+        "day": 7,
+        "name": "Domingo",
+        "comida": [
+          "ensalada-rucula-canonigos",
+          "pisto-quinoa-huevo"
+        ],
+        "cena": [
+          "humus-bastoncitos-zanahoria",
+          "corazones-alcachofa-salmon-queso"
+        ]
+      }
+    ]
+  }
+}
