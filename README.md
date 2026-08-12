@@ -43,3 +43,23 @@ y abrir `http://localhost:8000`.
 Sube todos los archivos a la raíz de un repositorio de GitHub y activa GitHub Pages desde:
 
 Settings → Pages → Deploy from a branch → main / root.
+
+
+## Navegación fija
+
+La barra con las flechas de navegación de los días permanece visible mientras se hace scroll por la semana, por lo que no es necesario volver arriba para cambiar de día.
+
+## Versión 3
+
+- Las flechas cambian el día seleccionado y desplazan automáticamente ese día hasta la parte superior, debajo de la barra de navegación.
+- El botón Hoy siempre muestra el día real de la semana actual; no depende del día seleccionado en la vista Plan.
+- Los planes son recurrentes y solo utilizan los nombres de los días de la semana, sin fechas concretas.
+- Las recetas tienen grupos: almuerzo-entrante, almuerzo-principal, cena-entrante y cena-principal.
+- Los favoritos se guardan en el iPhone mediante `localStorage`, por lo que permanecen al cerrar/reabrir la PWA en el mismo dispositivo y navegador.
+- Se añade una sección Favoritos independiente.
+
+### Grupos de recetas
+Los grupos de la primera semana se han asignado según su posición en el plan: primera receta = entrante y segunda receta = principal, tanto para almuerzo como para cena. Una receta puede tener varios grupos si aparece en distintos contextos.
+
+## Navegación de recetas
+El botón «Volver» devuelve a la vista desde la que se abrió la receta: Hoy, Plan, Recetas o Favoritos.

@@ -22,22 +22,7 @@
 </header>
 
 <main>
-  <section id="weekView" class="view active">
-    <div class="selector-card">
-      <label for="planSelect">Plan semanal</label>
-      <select id="planSelect"></select>
-    </div>
-
-    <div class="week-nav">
-      <button id="prevDay" aria-label="Día anterior">‹</button>
-      <div id="weekLabel"></div>
-      <button id="nextDay" aria-label="Día siguiente">›</button>
-    </div>
-
-    <div id="weekGrid"></div>
-  </section>
-
-  <section id="todayView" class="view">
+  <section id="todayView" class="view active">
     <div class="selector-card">
       <label for="todayPlanSelect">Plan semanal</label>
       <select id="todayPlanSelect"></select>
@@ -47,6 +32,27 @@
       <div id="todayContent"></div>
     </div>
   </section>
+
+  <section id="weekView" class="view">
+    <div class="selector-card">
+      <label for="planSelect">Plan semanal</label>
+      <select id="planSelect"></select>
+    </div>
+
+    <div class="day-selector" id="daySelector" aria-label="Seleccionar día">
+      <button data-day="0">Lun</button>
+      <button data-day="1">Mar</button>
+      <button data-day="2">Mié</button>
+      <button data-day="3">Jue</button>
+      <button data-day="4">Vie</button>
+      <button data-day="5">Sáb</button>
+      <button data-day="6">Dom</button>
+    </div>
+
+    <div id="weekGrid"></div>
+  </section>
+
+
 
   <section id="recipesView" class="view">
     <div class="search-box">
@@ -84,8 +90,8 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-item active" data-view="weekView">📅<span>Plan</span></button>
-  <button class="nav-item" data-view="todayView">☀️<span>Hoy</span></button>
+  <button class="nav-item active" data-view="todayView">☀️<span>Hoy</span></button>
+  <button class="nav-item" data-view="weekView">📅<span>Plan</span></button>
   <button class="nav-item" data-view="recipesView">🔎<span>Recetas</span></button>
   <button class="nav-item" data-view="favoritesView">★<span>Favoritos</span></button>
 </nav>

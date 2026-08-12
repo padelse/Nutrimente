@@ -18,31 +18,9 @@ main{max-width:760px;margin:auto;padding:0 14px 100px}
 .selector-card label{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:800;margin-bottom:5px}
 .selector-card select{width:100%;border:0;background:transparent;color:var(--text);font-weight:750;outline:0;padding:2px 0}
 .today-button{border:0;background:var(--accent);color:#fff;font-weight:800;border-radius:12px;padding:10px 14px}
-.week-nav{
-  position:sticky;
-  top:env(safe-area-inset-top, 0px);
-  z-index:20;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:4px -2px 12px;
-  padding:8px 2px;
-  background:rgba(247,245,239,.94);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-radius:16px;
-}
-.week-nav button{
-  flex:0 0 42px;
-  border:0;
-  background:var(--card);
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  font-size:28px;
-  box-shadow:var(--shadow);
-}
-#weekLabel{font-weight:800}
+ .day-selector{display:flex;gap:6px;margin:6px 0 14px;position:sticky;top:0;z-index:20;padding:7px 2px;background:rgba(247,245,239,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:14px}
+.day-selector button{flex:1;min-width:0;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:12px;padding:9px 3px;font-size:12px;font-weight:850}
+.day-selector button.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .day-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px;margin:12px 0;box-shadow:var(--shadow);scroll-margin-top:82px}
 .day-card.selected-day{outline:2px solid var(--accent)}
 .day-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
@@ -69,7 +47,6 @@ display:flex;justify-content:center;gap:8px;background:rgba(247,245,239,.94);bac
 .error{padding:40px 22px}
 @media(min-width:650px){#weekGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 10px}.day-card{margin:6px 0}}
 
-.day-card{scroll-margin-top:72px}
 
 .recipe-row{display:flex;align-items:stretch;gap:6px;margin:6px 0}
 .recipe-row .recipe-link{margin:0;flex:1;min-width:0}
