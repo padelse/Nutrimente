@@ -3,7 +3,11 @@ let PLANS = {};
 let selectedPlanId = "week-1";
 let selectedDayIndex = 0;
 let recipeFilter = "all";
+let previousView = "recipesView";
+
 const FAVORITES_KEY = "nutrimente-favorites-v1";
+const SHOPPING_RECIPES_KEY = "nutrimente-shopping-recipes-v1";
+const SHOPPING_CHECKED_KEY = "nutrimente-shopping-checked-v1";
 
 const $ = id => document.getElementById(id);
 const dayNames = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
@@ -28,6 +32,24 @@ function saveFavorites(set) {
   localStorage.setItem(FAVORITES_KEY, JSON.stringify([...set]));
 }
 
+function getShoppingRecipes() {
+  try { return new Set(JSON.parse(localStorage.getItem(SHOPPING_RECIPES_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+
+function saveShoppingRecipes(set) {
+  localStorage.setItem(SHOPPING_RECIPES_KEY, JSON.stringify([...set]));
+}
+
+function getCheckedIngredients() {
+  try { return new Set(JSON.parse(localStorage.getItem(SHOPPING_CHECKED_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+
+function saveCheckedIngredients(set) {
+  localStorage.setItem(SHOPPING_CHECKED_KEY, JSON.stringify([...set]));
+}
+
 async function loadData() {
   const [recipesResponse, plansResponse] = await Promise.all([
     fetch("recipes.json"),
@@ -46,6 +68,7 @@ async function loadData() {
   renderToday();
   renderRecipes();
   renderFavorites();
+  renderShopping();
 }
 
 function fillPlanSelectors() {
@@ -78,7 +101,7 @@ function renderWeek() {
     </article>
   `;
 
-  bindRecipeButtons();
+  bindAllActionButtons();
 }
 
 function renderMealGroup(title, recipeIds) {
@@ -94,11 +117,14 @@ function recipeButton(id) {
   const recipe = RECIPES[id];
   if (!recipe) return "";
   const favorite = getFavorites().has(id);
+  const inShopping = getShoppingRecipes().has(id);
+
   return `<div class="recipe-row">
     <button class="recipe-link" data-recipe="${escapeHtml(id)}">
       <span>${escapeHtml(recipe.name)}</span><span class="chevron">›</span>
     </button>
-    <button class="favorite-button ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
+    <button class="action-btn shopping-button ${inShopping ? "is-in-shopping" : ""}" data-shopping="${escapeHtml(id)}" aria-label="${inShopping ? "Quitar de la lista de la compra" : "Añadir a la lista de la compra"}">🛒</button>
+    <button class="action-btn favorite-button ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
   </div>`;
 }
 
@@ -110,7 +136,7 @@ function renderToday() {
   $("todayContent").innerHTML =
     renderMealGroup("🍽️ Comida", day.comida) +
     renderMealGroup("🌙 Cena", day.cena);
-  bindRecipeButtons();
+  bindAllActionButtons();
 }
 
 function recipeMatches(recipe, query) {
@@ -131,7 +157,7 @@ function renderRecipes() {
     ? `${matches.length} resultado${matches.length === 1 ? "" : "s"}`
     : `${matches.length} recetas`;
   $("recipeList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState("No hay recetas que coincidan.");
-  bindRecipeButtons();
+  bindAllActionButtons();
 }
 
 function renderFavorites() {
@@ -143,7 +169,96 @@ function renderFavorites() {
 
   $("favoriteCount").textContent = `${matches.length} favorito${matches.length === 1 ? "" : "s"}`;
   $("favoriteList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState(favorites.size ? "No hay favoritos que coincidan con la búsqueda." : "Todavía no has marcado ninguna receta como favorita.");
-  bindRecipeButtons();
+  bindAllActionButtons();
+}
+
+function getShoppingIngredientsList() {
+  const shoppingRecipeIds = getShoppingRecipes();
+  const ingredientMap = new Map();
+  shoppingRecipeIds.forEach(id => {
+    const recipe = RECIPES[id];
+    if (recipe && recipe.ingredients) {
+      recipe.ingredients.forEach(ing => {
+        const trimmed = ing.trim();
+        const normalized = trimmed.toLowerCase();
+        if (trimmed && !ingredientMap.has(normalized)) {
+          ingredientMap.set(normalized, trimmed);
+        }
+      });
+    }
+  });
+  return Array.from(ingredientMap.values()).sort((a, b) => a.localeCompare(b, "es"));
+}
+
+function renderShopping() {
+  const ingredients = getShoppingIngredientsList();
+  const checked = getCheckedIngredients();
+  const shoppingCount = getShoppingRecipes().size;
+
+  $("shoppingHeader").innerHTML = `
+    <div class="shopping-heading-row">
+      <div>
+        <div class="eyebrow">MI LISTA</div>
+        <h2>Lista de la compra</h2>
+      </div>
+      ${ingredients.length > 0 ? `<button class="clear-shopping-btn" id="clearShoppingBtn">Borrar lista</button>` : ""}
+    </div>
+  `;
+
+  if (ingredients.length === 0) {
+    $("shoppingCount").textContent = "";
+    $("shoppingList").innerHTML = emptyState("No hay ingredientes en la lista. Añade recetas pulsando el botón 🛒 en cualquier receta.");
+  } else {
+    $("shoppingCount").textContent = `${ingredients.length} ingrediente${ingredients.length === 1 ? "" : "s"} (${shoppingCount} receta${shoppingCount === 1 ? "" : "s"})`;
+    $("shoppingList").innerHTML = `
+      <ul class="shopping-checklist">
+        ${ingredients.map(ing => {
+          const isChecked = checked.has(ing.toLowerCase());
+          return `
+            <li class="shopping-item ${isChecked ? "is-checked" : ""}">
+              <label class="checkbox-container">
+                <input type="checkbox" data-ingredient="${escapeHtml(ing.toLowerCase())}" ${isChecked ? "checked" : ""}>
+                <span class="checkmark"></span>
+                <span class="ingredient-text">${escapeHtml(ing)}</span>
+              </label>
+            </li>
+          `;
+        }).join("")}
+      </ul>
+    `;
+  }
+
+  bindShoppingCheckboxes();
+  if ($("clearShoppingBtn")) {
+    $("clearShoppingBtn").onclick = clearShoppingList;
+  }
+}
+
+function bindShoppingCheckboxes() {
+  document.querySelectorAll(".shopping-checklist input[type='checkbox']").forEach(input => {
+    input.onchange = e => {
+      const ingNorm = e.target.dataset.ingredient;
+      const checked = getCheckedIngredients();
+      if (e.target.checked) {
+        checked.add(ingNorm);
+      } else {
+        checked.delete(ingNorm);
+      }
+      saveCheckedIngredients(checked);
+      const li = e.target.closest(".shopping-item");
+      if (li) {
+        li.classList.toggle("is-checked", e.target.checked);
+      }
+    };
+  });
+}
+
+function clearShoppingList() {
+  if (confirm("¿Quieres borrar todos los ingredientes y desmarcar las recetas de la lista de la compra?")) {
+    saveShoppingRecipes(new Set());
+    saveCheckedIngredients(new Set());
+    refreshCurrentViews();
+  }
 }
 
 function emptyState(text) { return `<div class="empty-state">${escapeHtml(text)}</div>`; }
@@ -152,9 +267,26 @@ function toggleFavorite(id) {
   const favorites = getFavorites();
   if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
   saveFavorites(favorites);
+  refreshCurrentViews();
+}
+
+function toggleShopping(id) {
+  const shopping = getShoppingRecipes();
+  if (shopping.has(id)) shopping.delete(id); else shopping.add(id);
+  saveShoppingRecipes(shopping);
+  refreshCurrentViews();
+}
+
+function refreshCurrentViews() {
+  renderToday();
+  renderWeek();
   renderRecipes();
   renderFavorites();
-  if ($("recipeContent").dataset.recipeId === id) showRecipe(id);
+  renderShopping();
+  const detailRecipeId = $("recipeContent").dataset.recipeId;
+  if (detailRecipeId && document.getElementById("recipeView").classList.contains("active")) {
+    showRecipe(detailRecipeId, previousView);
+  }
 }
 
 function showRecipe(id, fromView) {
@@ -162,12 +294,16 @@ function showRecipe(id, fromView) {
   const r = RECIPES[id];
   if (!r) return;
   const favorite = getFavorites().has(id);
+  const inShopping = getShoppingRecipes().has(id);
   const groups = (r.groups || []).map(g => filterLabels[g]).filter(Boolean);
   $("recipeContent").dataset.recipeId = id;
   $("recipeContent").innerHTML = `
     <div class="recipe-detail-head">
       <h2>${escapeHtml(r.name)}</h2>
-      <button class="detail-favorite ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
+      <div class="detail-actions">
+        <button class="detail-action detail-shopping ${inShopping ? "is-in-shopping" : ""}" data-shopping="${escapeHtml(id)}" aria-label="${inShopping ? "Quitar de la lista de la compra" : "Añadir a la lista de la compra"}">🛒</button>
+        <button class="detail-action detail-favorite ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
+      </div>
     </div>
     ${groups.length ? `<div class="recipe-tags">${groups.map(g => `<span>${escapeHtml(g)}</span>`).join("")}</div>` : ""}
     <h3>Ingredientes</h3>
@@ -175,7 +311,7 @@ function showRecipe(id, fromView) {
     <h3>Elaboración</h3>
     <p>${escapeHtml(r.preparation || "No hay elaboración registrada en el plan.")}</p>
   `;
-  bindFavoriteButtons();
+  bindAllActionButtons();
   showView("recipeView");
 }
 
@@ -198,6 +334,21 @@ function bindFavoriteButtons() {
   });
 }
 
+function bindShoppingButtons() {
+  document.querySelectorAll("[data-shopping]").forEach(button => {
+    button.onclick = event => {
+      event.stopPropagation();
+      toggleShopping(button.dataset.shopping);
+    };
+  });
+}
+
+function bindAllActionButtons() {
+  bindRecipeButtons();
+  bindFavoriteButtons();
+  bindShoppingButtons();
+}
+
 function showView(id) {
   document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
   $(id).classList.add("active");
@@ -216,7 +367,6 @@ function changePlan(id) {
 }
 
 function goToToday() {
-  const todayIndex = getTodayIndex();
   renderToday();
   showView("todayView");
 }
@@ -254,8 +404,10 @@ document.querySelectorAll(".nav-item").forEach(button => {
   button.onclick = () => {
     const view = button.dataset.view;
     if (view === "todayView") renderToday();
+    if (view === "weekView") renderWeek();
     if (view === "recipesView") renderRecipes();
     if (view === "favoritesView") renderFavorites();
+    if (view === "shoppingView") renderShopping();
     showView(view);
   };
 });
