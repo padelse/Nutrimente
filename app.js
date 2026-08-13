@@ -3,7 +3,6 @@ let PLANS = {};
 let selectedPlanId = "week-1";
 let selectedDayIndex = 0;
 let recipeFilter = "all";
-let previousView = "recipesView";
 const FAVORITES_KEY = "nutrimente-favorites-v1";
 
 const $ = id => document.getElementById(id);
@@ -47,7 +46,6 @@ async function loadData() {
   renderToday();
   renderRecipes();
   renderFavorites();
-  renderShopping();
 }
 
 function fillPlanSelectors() {
@@ -81,8 +79,6 @@ function renderWeek() {
   `;
 
   bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
 }
 
 function renderMealGroup(title, recipeIds) {
@@ -94,154 +90,32 @@ function renderMealGroup(title, recipeIds) {
   `;
 }
 
-function getShoppingItems() {
-  try { return JSON.parse(localStorage.getItem("nutrimente-shopping-items-v1") || "[]"); }
-  catch { return []; }
-}
-
-function saveShoppingItems(items) {
-  localStorage.setItem("nutrimente-shopping-items-v1", JSON.stringify(items));
-}
-
-function isInShoppingList(id) {
-  return getShoppingItems().some(item => (item.recipeIds || []).includes(id));
-}
-
-function normalizeIngredient(value) {
-  return String(value || "").trim().replace(/\s+/g, " ");
-}
-
-function addRecipeToShoppingList(id) {
-  const recipe = RECIPES[id];
-  if (!recipe) return;
-  const items = getShoppingItems();
-
-  (recipe.ingredients || []).forEach(raw => {
-    const text = normalizeIngredient(raw);
-    if (!text) return;
-    const key = text.toLocaleLowerCase("es");
-    let item = items.find(x => x.key === key);
-    if (!item) {
-      item = { key, text, recipeIds: [], checked: false };
-      items.push(item);
-    }
-    if (!item.recipeIds.includes(id)) item.recipeIds.push(id);
-  });
-  saveShoppingItems(items);
-}
-
-function removeRecipeFromShoppingList(id) {
-  let items = getShoppingItems();
-  items.forEach(item => {
-    item.recipeIds = (item.recipeIds || []).filter(recipeId => recipeId !== id);
-  });
-  items = items.filter(item => item.recipeIds.length > 0);
-  saveShoppingItems(items);
-}
-
-function toggleShoppingRecipe(id) {
-  if (isInShoppingList(id)) removeRecipeFromShoppingList(id);
-  else addRecipeToShoppingList(id);
-  refreshRecipeLists();
-}
-
-function toggleFavorite(id) {
-  const favorites = getFavorites();
-  if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
-  saveFavorites(favorites);
-  renderRecipes();
-  renderFavorites();
-  renderWeek();
-  renderToday();
-  bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
-  if ($("recipeContent").dataset.recipeId === id && $("recipeView").classList.contains("active")) showRecipe(id);
-}
-
-function refreshRecipeLists() {
-  renderWeek();
-  renderToday();
-  renderRecipes();
-  renderFavorites();
-  renderShopping();
-  bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
-}
-
 function recipeButton(id) {
   const recipe = RECIPES[id];
   if (!recipe) return "";
   const favorite = getFavorites().has(id);
-  const shopping = isInShoppingList(id);
   return `<div class="recipe-row">
     <button class="recipe-link" data-recipe="${escapeHtml(id)}">
       <span>${escapeHtml(recipe.name)}</span><span class="chevron">›</span>
     </button>
     <button class="favorite-button ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
-    <button class="shopping-button ${shopping ? "shopping-active" : ""}" data-shopping="${escapeHtml(id)}" aria-label="${shopping ? "Quitar de la lista de la compra" : "Añadir a la lista de la compra"}">🛒</button>
   </div>`;
 }
 
-function bindFavoriteButtons() {
-  document.querySelectorAll("[data-favorite]").forEach(button => {
-    button.onclick = event => {
-      event.stopPropagation();
-      toggleFavorite(button.dataset.favorite);
-    };
-  });
-}
-
-function bindShoppingButtons() {
-  document.querySelectorAll("[data-shopping]").forEach(button => {
-    button.onclick = event => {
-      event.stopPropagation();
-      toggleShoppingRecipe(button.dataset.shopping);
-    };
-  });
-  document.querySelectorAll("[data-shopping-check]").forEach(box => {
-    box.onchange = () => {
-      const items = getShoppingItems();
-      const item = items.find(x => x.key === box.dataset.shoppingCheck);
-      if (item) {
-        item.checked = box.checked;
-        saveShoppingItems(items);
-        renderShopping();
-      }
-    };
-  });
-}
-
-function renderFavorites() {
-  const query = $("favoriteSearch").value.trim().toLocaleLowerCase("es");
-  const favorites = getFavorites();
-  const matches = Object.entries(RECIPES)
-    .filter(([id, r]) => favorites.has(id) && recipeMatches(r, query))
-    .sort((a,b) => a[1].name.localeCompare(b[1].name, "es"));
-
-  $("favoriteCount").textContent = `${matches.length} favorito${matches.length === 1 ? "" : "s"}`;
-  $("favoriteList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") ||
-    emptyState(favorites.size ? "No hay favoritos que coincidan con la búsqueda." : "Todavía no has marcado ninguna receta como favorita.");
+function renderToday() {
+  const plan = getPlan();
+  const todayIndex = getTodayIndex();
+  const day = plan.days[todayIndex];
+  $("todayDate").textContent = day.name;
+  $("todayContent").innerHTML =
+    renderMealGroup("🍽️ Comida", day.comida) +
+    renderMealGroup("🌙 Cena", day.cena);
   bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
 }
 
-function renderShopping() {
-  const items = getShoppingItems();
-  $("shoppingCount").textContent = `${items.length} ingrediente${items.length === 1 ? "" : "s"}`;
-  $("shoppingList").innerHTML = items.length ? items.map(item => `
-    <label class="shopping-item ${item.checked ? "checked" : ""}">
-      <input type="checkbox" data-shopping-check="${escapeHtml(item.key)}" ${item.checked ? "checked" : ""}>
-      <span>${escapeHtml(item.text)}</span>
-    </label>`).join("") : emptyState("Tu lista de la compra está vacía.");
-  bindShoppingButtons();
-}
-
-function clearShoppingList() {
-  saveShoppingItems([]);
-  refreshRecipeLists();
+function recipeMatches(recipe, query) {
+  const haystack = [recipe.name, ...(recipe.ingredients || [])].join(" ").toLocaleLowerCase("es");
+  return !query || haystack.includes(query);
 }
 
 function renderRecipes() {
@@ -258,8 +132,6 @@ function renderRecipes() {
     : `${matches.length} recetas`;
   $("recipeList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState("No hay recetas que coincidan.");
   bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
 }
 
 function renderFavorites() {
@@ -272,8 +144,6 @@ function renderFavorites() {
   $("favoriteCount").textContent = `${matches.length} favorito${matches.length === 1 ? "" : "s"}`;
   $("favoriteList").innerHTML = matches.map(([id]) => recipeButton(id)).join("") || emptyState(favorites.size ? "No hay favoritos que coincidan con la búsqueda." : "Todavía no has marcado ninguna receta como favorita.");
   bindRecipeButtons();
-  bindFavoriteButtons();
-  bindShoppingButtons();
 }
 
 function emptyState(text) { return `<div class="empty-state">${escapeHtml(text)}</div>`; }
@@ -380,15 +250,12 @@ $("recipeFilters").querySelectorAll("[data-filter]").forEach(button => {
   };
 });
 
-$("clearShopping").onclick = clearShoppingList;
-
 document.querySelectorAll(".nav-item").forEach(button => {
   button.onclick = () => {
     const view = button.dataset.view;
     if (view === "todayView") renderToday();
     if (view === "recipesView") renderRecipes();
     if (view === "favoritesView") renderFavorites();
-    if (view === "shoppingView") renderShopping();
     showView(view);
   };
 });
