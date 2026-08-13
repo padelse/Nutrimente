@@ -64,3 +64,13 @@ display:flex;justify-content:center;gap:8px;background:rgba(247,245,239,.94);bac
 .recipe-tags span{background:var(--accent2);color:var(--accent);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:800}
 .empty-state{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 16px;color:var(--muted);text-align:center;line-height:1.45}
 @media(max-width:420px){.nav-item{padding-left:2px;padding-right:2px}.nav-item span{font-size:10px}.nav-item{font-size:18px}}
+
+.recipe-row{display:flex;align-items:stretch;gap:6px;margin:6px 0}
+.recipe-row .recipe-link{margin:0;flex:1;min-width:0}
+.favorite-button,.shopping-button{flex:0 0 46px;border:0;background:var(--accent2);border-radius:13px;color:#aaa;font-size:23px;line-height:1;cursor:pointer}
+.favorite-button.is-favorite{color:#d6a900}.shopping-button.shopping-active{color:var(--accent)}
+.favorite-button:active,.shopping-button:active{transform:scale(.95)}
+.shopping-heading{margin:8px 2px 14px}.shopping-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.shopping-title-row h2{font-size:26px;margin:4px 0 0}
+.clear-shopping{border:0;background:var(--accent);color:#fff;font-weight:800;border-radius:12px;padding:9px 11px;font-size:13px}
+.shopping-item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:15px;padding:13px 14px;margin:7px 0;box-shadow:var(--shadow);font-size:15px}
+.shopping-item input{width:21px;height:21px;accent-color:var(--accent)}.shopping-item.checked span{text-decoration:line-through;color:var(--muted)}
