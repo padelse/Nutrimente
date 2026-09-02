@@ -8,6 +8,7 @@ let previousView = "recipesView";
 const FAVORITES_KEY = "nutrimente-favorites-v1";
 const SHOPPING_RECIPES_KEY = "nutrimente-shopping-recipes-v1";
 const SHOPPING_CHECKED_KEY = "nutrimente-shopping-checked-v1";
+const SELECTED_PLAN_KEY = "nutrimente-selected-plan-v1";
 
 const $ = id => document.getElementById(id);
 const dayNames = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
@@ -21,6 +22,14 @@ const filterLabels = {
 
 function getTodayIndex() {
   return (new Date().getDay() + 6) % 7;
+}
+
+function getSavedPlanId() {
+  return localStorage.getItem(SELECTED_PLAN_KEY) || "week-1";
+}
+
+function savePlanId(id) {
+  localStorage.setItem(SELECTED_PLAN_KEY, id);
 }
 
 function getFavorites() {
@@ -60,7 +69,12 @@ async function loadData() {
   PLANS = await plansResponse.json();
 
   const available = Object.keys(PLANS);
-  if (!PLANS[selectedPlanId]) selectedPlanId = available[0];
+  const savedPlanId = getSavedPlanId();
+  if (PLANS[savedPlanId]) {
+    selectedPlanId = savedPlanId;
+  } else if (available.length > 0) {
+    selectedPlanId = available[0];
+  }
 
   fillPlanSelectors();
   selectedDayIndex = getTodayIndex();
@@ -199,7 +213,7 @@ function renderShopping() {
     <div class="shopping-heading-row">
       <div>
         <div class="eyebrow">MI LISTA</div>
-        <h2>Lista de la compra</h2>
+        2>Lista de la compra</h2>
       </div>
       ${ingredients.length > 0 ? `<button class="clear-shopping-btn" id="clearShoppingBtn">Borrar lista</button>` : ""}
     </div>
@@ -360,6 +374,7 @@ function showView(id) {
 
 function changePlan(id) {
   selectedPlanId = id;
+  savePlanId(id);
   $("planSelect").value = id;
   $("todayPlanSelect").value = id;
   renderWeek();
