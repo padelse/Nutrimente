@@ -3,12 +3,12 @@ let PLANS = {};
 let selectedPlanId = "week-1";
 let selectedDayIndex = 0;
 let recipeFilter = "all";
-let previousView = "recipesView";
+let previousView = "weekView";
 
 const FAVORITES_KEY = "nutrimente-favorites-v1";
 const SHOPPING_RECIPES_KEY = "nutrimente-shopping-recipes-v1";
 const SHOPPING_CHECKED_KEY = "nutrimente-shopping-checked-v1";
-const SELECTED_PLAN_KEY = "nutrimente-selected-plan-v1";
+const PLAN_KEY = "nutrimente-selected-plan-v1";
 
 const $ = id => document.getElementById(id);
 const dayNames = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
@@ -24,12 +24,12 @@ function getTodayIndex() {
   return (new Date().getDay() + 6) % 7;
 }
 
-function getSavedPlanId() {
-  return localStorage.getItem(SELECTED_PLAN_KEY) || "week-1";
+function getSelectedPlanId() {
+  return localStorage.getItem(PLAN_KEY) || "week-1";
 }
 
-function savePlanId(id) {
-  localStorage.setItem(SELECTED_PLAN_KEY, id);
+function saveSelectedPlanId(id) {
+  localStorage.setItem(PLAN_KEY, id);
 }
 
 function getFavorites() {
@@ -68,18 +68,16 @@ async function loadData() {
   RECIPES = await recipesResponse.json();
   PLANS = await plansResponse.json();
 
+  selectedPlanId = getSelectedPlanId();
   const available = Object.keys(PLANS);
-  const savedPlanId = getSavedPlanId();
-  if (PLANS[savedPlanId]) {
-    selectedPlanId = savedPlanId;
-  } else if (available.length > 0) {
-    selectedPlanId = available[0];
+  if (!PLANS[selectedPlanId]) {
+    selectedPlanId = available[0] || "week-1";
+    saveSelectedPlanId(selectedPlanId);
   }
 
   fillPlanSelectors();
   selectedDayIndex = getTodayIndex();
   renderWeek();
-  renderToday();
   renderRecipes();
   renderFavorites();
   renderShopping();
@@ -90,9 +88,7 @@ function fillPlanSelectors() {
     `<option value="${p.id}">${escapeHtml(p.name)}</option>`
   ).join("");
   $("planSelect").innerHTML = options;
-  $("todayPlanSelect").innerHTML = options;
   $("planSelect").value = selectedPlanId;
-  $("todayPlanSelect").value = selectedPlanId;
 }
 
 function getPlan() { return PLANS[selectedPlanId]; }
@@ -140,17 +136,6 @@ function recipeButton(id) {
     <button class="action-btn shopping-button ${inShopping ? "is-in-shopping" : ""}" data-shopping="${escapeHtml(id)}" aria-label="${inShopping ? "Quitar de la lista de la compra" : "Añadir a la lista de la compra"}">🛒</button>
     <button class="action-btn favorite-button ${favorite ? "is-favorite" : ""}" data-favorite="${escapeHtml(id)}" aria-label="${favorite ? "Quitar de favoritos" : "Añadir a favoritos"}">${favorite ? "★" : "☆"}</button>
   </div>`;
-}
-
-function renderToday() {
-  const plan = getPlan();
-  const todayIndex = getTodayIndex();
-  const day = plan.days[todayIndex];
-  $("todayDate").textContent = day.name;
-  $("todayContent").innerHTML =
-    renderMealGroup("🍽️ Comida", day.comida) +
-    renderMealGroup("🌙 Cena", day.cena);
-  bindAllActionButtons();
 }
 
 function recipeMatches(recipe, query) {
@@ -213,7 +198,7 @@ function renderShopping() {
     <div class="shopping-heading-row">
       <div>
         <div class="eyebrow">MI LISTA</div>
-        2>Lista de la compra</h2>
+        <h2>Lista de la compra</h2>
       </div>
       ${ingredients.length > 0 ? `<button class="clear-shopping-btn" id="clearShoppingBtn">Borrar lista</button>` : ""}
     </div>
@@ -292,7 +277,6 @@ function toggleShopping(id) {
 }
 
 function refreshCurrentViews() {
-  renderToday();
   renderWeek();
   renderRecipes();
   renderFavorites();
@@ -304,7 +288,7 @@ function refreshCurrentViews() {
 }
 
 function showRecipe(id, fromView) {
-  previousView = fromView || previousView || "recipesView";
+  previousView = fromView || previousView || "weekView";
   const r = RECIPES[id];
   if (!r) return;
   const favorite = getFavorites().has(id);
@@ -333,7 +317,7 @@ function bindRecipeButtons() {
   document.querySelectorAll("[data-recipe]").forEach(button => {
     button.onclick = () => {
       const current = document.querySelector(".view.active");
-      const fromView = current ? current.id : "recipesView";
+      const fromView = current ? current.id : "weekView";
       showRecipe(button.dataset.recipe, fromView);
     };
   });
@@ -374,16 +358,15 @@ function showView(id) {
 
 function changePlan(id) {
   selectedPlanId = id;
-  savePlanId(id);
+  saveSelectedPlanId(id);
   $("planSelect").value = id;
-  $("todayPlanSelect").value = id;
   renderWeek();
-  renderToday();
 }
 
 function goToToday() {
-  renderToday();
-  showView("todayView");
+  selectedDayIndex = getTodayIndex();
+  renderWeek();
+  showView("weekView");
 }
 
 function escapeHtml(value) {
@@ -393,7 +376,6 @@ function escapeHtml(value) {
 }
 
 $("planSelect").addEventListener("change", e => changePlan(e.target.value));
-$("todayPlanSelect").addEventListener("change", e => changePlan(e.target.value));
 
 $("daySelector").querySelectorAll("[data-day]").forEach(button => {
   button.onclick = () => {
@@ -405,7 +387,7 @@ $("daySelector").querySelectorAll("[data-day]").forEach(button => {
 $("todayBtn").onclick = goToToday;
 $("recipeSearch").addEventListener("input", renderRecipes);
 $("favoriteSearch").addEventListener("input", renderFavorites);
-$("backRecipe").onclick = () => showView(previousView || "recipesView");
+$("backRecipe").onclick = () => showView(previousView || "weekView");
 
 $("recipeFilters").querySelectorAll("[data-filter]").forEach(button => {
   button.onclick = () => {
@@ -418,7 +400,6 @@ $("recipeFilters").querySelectorAll("[data-filter]").forEach(button => {
 document.querySelectorAll(".nav-item").forEach(button => {
   button.onclick = () => {
     const view = button.dataset.view;
-    if (view === "todayView") renderToday();
     if (view === "weekView") renderWeek();
     if (view === "recipesView") renderRecipes();
     if (view === "favoritesView") renderFavorites();
