@@ -89,5 +89,94 @@
         ]
       }
     ]
+  },
+  "week-2": {
+    "id": "week-2",
+    "name": "Semana 2",
+    "description": "Plan nutricional del documento original.",
+    "days": [
+      {
+        "day": 1,
+        "name": "Lunes",
+        "comida": [
+          "salmorejo-manzana",
+          "ensalada-garbanzos-naranja-huevo-bacalao"
+        ],
+        "cena": [
+          "tostas-pavo-rucula-parmesano"
+        ]
+      },
+      {
+        "day": 2,
+        "name": "Martes",
+        "comida": [
+          "salmorejo-manzana",
+          "dorada-roteña"
+        ],
+        "cena": [
+          "aliño-judias-verdes-patatas-melva-huevo"
+        ]
+      },
+      {
+        "day": 3,
+        "name": "Miércoles",
+        "comida": [
+          "zanahorias-comino-oregano",
+          "alubias-tailandesas"
+        ],
+        "cena": [
+          "ensalada-tomate-aguacate",
+          "hamburguesa-ternera-plancha"
+        ]
+      },
+      {
+        "day": 4,
+        "name": "Jueves",
+        "comida": [
+          "guarnicion-couscous",
+          "merluza-salsa-pimiento-rojo"
+        ],
+        "cena": [
+          "pepininillos",
+          "tortilla-espinacas-feta"
+        ]
+      },
+      {
+        "day": 5,
+        "name": "Viernes",
+        "comida": [
+          "guarnicion-couscous",
+          "pollo-curry"
+        ],
+        "cena": [
+          "picoteo-queso-salmon-ahumado",
+          "alcachofas-revueltas-huevo"
+        ]
+      },
+      {
+        "day": 6,
+        "name": "Sábado",
+        "comida": [
+          "aliño-tomates-oregano",
+          "marmitako-bonito"
+        ],
+        "cena": [
+          "humus-bastoncitos-zanahoria",
+          "ensaladilla-brocoli"
+        ]
+      },
+      {
+        "day": 7,
+        "name": "Domingo",
+        "comida": [
+          "ensalada-rucula-canonigos",
+          "berenjenas-rellenas-carne"
+        ],
+        "cena": [
+          "humus-bastoncitos-zanahoria",
+          "ensalada-arenque-aguacate-mostaza"
+        ]
+      }
+    ]
   }
 }
