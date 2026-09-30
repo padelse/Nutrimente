@@ -365,12 +365,13 @@
     "name": "Salmorejo de manzana",
     "ingredients": [
       "Tomate",
-      "Manzanas",
-      "Aceite de oliva virgen extra",
+      "Manzana",
       "Ajo",
-      "Vinagre de manzana"
+      "Aceite de oliva virgen extra",
+      "Vinagre",
+      "Sal"
     ],
-    "preparation": "Pela y trocea 2 tomates, para ponerlos en el vaso de la batidora. Ahora lava muy bien 1 manzana, la cortas en gajos y la añades a la batidora, junto con el diente de ajo. A continuación bate, mientras vas agregando poco a poco un chorreoncito de aceite de oliva (siempre al final, para que emulsione), vinagre y una pizca de sal, con lo que irás consiguiendo que se forme una mezcla más espesa.",
+    "preparation": "Pelar y trocear 2 tomates y 1 manzana en gajos. Añadir ajo y triturar. Ir incorporando el aceite de oliva al final, junto con vinagre y sal, hasta conseguir una textura más espesa.",
     "groups": [
       "almuerzo-entrante"
     ]
@@ -378,97 +379,99 @@
   "ensalada-garbanzos-naranja-huevo-bacalao": {
     "name": "Ensalada de garbanzos con naranja, huevo y bacalao",
     "ingredients": [
-      "Garbanzos cocidos (conserva)",
-      "Huevo",
-      "Bacalao ahumado",
-      "Naranjas",
+      "Garbanzos cocidos",
+      "Bacalao desalado o ahumado",
+      "Naranja",
       "Cebolleta",
-      "Aceitunas negras",
+      "Huevo",
+      "Aceitunas",
       "Aceite de oliva virgen extra"
     ],
-    "preparation": "Opciones de bacalao: bacalao ya desalado o bacalao ahumado. Enjuagar el bote de garbanzos en agua bajo el grifo, hasta quitar toda la espuma, e incorporar a un bol. Picar en juliana la cebolleta y cortar en gajos la naranja. Aprovechar el jugo que salga de la naranja para incorporar a la ensalada junto con el aceite de oliva. Añadir el huevo cocido troceado, picar unas cuantas aceitunas sin hueso y mezclar todo en un bol con los garbanzos. Salpimentar al gusto.",
+    "preparation": "Utilizar bacalao desalado o ahumado. Enjuagar los garbanzos de bote y escurrir. Cortar la cebolleta en juliana y la naranja en gajos. Aliñar con el zumo de naranja y aceite de oliva. Añadir huevo cocido picado y aceitunas, mezclar y condimentar.",
     "groups": [
       "almuerzo-principal"
     ]
   },
   "tostas-pavo-rucula-parmesano": {
-    "name": "Tostas de filetitos de pavo con rúcula y lascas de parmesano",
+    "name": "Tostas de pavo, rúcula y parmesano",
     "ingredients": [
-      "Pavo, filetes",
-      "Pan 100% Integral con masa madre",
-      "Queso Parmesano (DOP)",
-      "Tomate cherry",
-      "Rúcula"
+      "Pavo",
+      "Pan",
+      "Rúcula",
+      "Queso parmesano",
+      "Tomate",
+      "Aceite de oliva virgen extra"
     ],
-    "preparation": "Hacer los filetitos de pavo a la plancha con un poco de aceite, salpimentar. Tostar las rebanadas de pan, añadir un poquito de aceite de oliva y restregar el tomate, o colocarlo en rodajitas, y finalmente colocar la carne encima. Coloca encima la rúcula que aromatiza y da el toque final. Finalmente, poner unas lascas o láminas de parmesano al final (siempre mejor comprar el trozo entero y cortarlo tú).",
+    "preparation": "Cocinar los filetes de pavo a la plancha con un poco de aceite y condimentar. Tostar el pan, añadir aceite y frotar con tomate o colocar unas rodajas. Añadir el pavo, la rúcula y lascas de parmesano.",
     "groups": [
       "cena-principal"
     ]
   },
   "dorada-roteña": {
-    "name": "Dorada a la roteña",
+    "name": "Dorada roteña",
     "ingredients": [
       "Dorada",
-      "Tomate",
+      "Ajo",
+      "Cebolla",
       "Pimiento",
-      "Cebollas",
-      "Vino blanco",
+      "Tomate",
+      "Vino fino",
       "Aceite de oliva virgen extra",
-      "Ajo"
+      "Sal",
+      "Pimienta"
     ],
-    "preparation": "Hacer un sofrito, echando en primer lugar los dientes de ajo cortados en láminas junto con la cebolla y los pimientos, evitando que no se doren. A continuación añadir los tomates pelados, sal y pimienta. Añadir un chorrito de vino fino y dejar que evapore. Sazona los lomos de dorada y cocínalos a fuego vivo en una sartén con un poco de aceite de oliva. Comienza dorando la parte de la piel para terminar por la otra cara. Finalmente, recubrirlos con el sofrito.",
+    "preparation": "Sofreír el ajo laminado con cebolla y pimientos sin que se doren. Añadir los tomates pelados, sal y pimienta, incorporar vino fino y reducir. Salpimentar los lomos de dorada, cocinar primero por el lado de la piel y después por el otro. Cubrir con el sofrito.",
     "groups": [
       "almuerzo-principal"
     ]
   },
   "aliño-judias-verdes-patatas-melva-huevo": {
-    "name": "Aliño de judías verdes con patatas, melva y huevo duro",
+    "name": "Aliño de judías verdes, patatas, melva y huevo",
     "ingredients": [
-      "Patatas",
       "Judías verdes",
-      "Melva en aceite de oliva virgen extra",
+      "Patatas",
+      "Melva en conserva",
       "Huevo",
       "Aceite de oliva virgen extra",
-      "Vinagre de manzana"
+      "Vinagre",
+      "Sal"
     ],
-    "preparation": "PATATAS: Se ponen las patatas en una olla o cazuela y se cubren con agua. Se añade al agua una cucharadita de vinagre y otra de sal. El agua tiene que cubrir al menos 3 ó 4 dedos por encima de las patatas, pues a medida que cuecen irá evaporando parte del agua. Se ponen a fuego máximo y cuando comience a hervir el agua, se baja el fuego a temperatura media. Se mantiene hirviendo a fuego medio durante 30 minutos. Es importante que cuezan a una temperatura constante y no muy alta. Cuando pase el tiempo, pinchar con un alfiler, si entra suavemente, la patata estará perfectamente cocida. Es preferible pincharla con una aguja o alfiler pues si se pincha con un cuchillo u otro cubierto podría entrar agua en la patata o abrirse la piel y no interesa. Una vez enfriadas, pelar la piel con la mano o utilizando un cuchillo (cuidado para no llevarte parte de la patata). JUDÍAS VERDES: Cocer las judías verdes en agua hirviendo con un poco de sal durante unos 15-18 minutos (comprobar si están tiernas). Una vez cocidas ambas, colocar en una ensaladera junto con los huevos cocidos y una lata de melva (o caballa, atún, sardinas...) y condimentar al gusto con un chorreón de aceite de oliva virgen, vinagre y sal.",
+    "preparation": "Cocer las patatas unos 30 minutos en agua con vinagre y sal, comprobando con un pincho. Cocer las judías verdes unos 15-18 minutos. Combinar con huevos cocidos y una lata de melva (o alternativas) y aliñar con aceite de oliva virgen extra, vinagre y sal.",
     "groups": [
       "cena-principal"
     ]
   },
   "zanahorias-comino-oregano": {
-    "name": "Zanahorias aliñadas con comino y orégano",
+    "name": "Zanahorias con comino y orégano",
     "ingredients": [
       "Zanahorias",
-      "Aceite de oliva virgen extra",
+      "Comino molido",
       "Orégano",
-      "Vinagre de manzana",
-      "Comino molido"
+      "Vinagre",
+      "Aceite de oliva virgen extra",
+      "Sal"
     ],
-    "preparation": "Hervir las zanahorias. Añadirlas a un bol y aliñar con el orégano, el comino y un poco de sal. Añadimos vinagre y un chorreoncito de aceite de oliva. Enfriar en la nevera. Conservar en recipiente cerrado si se hace más cantidad.",
+    "preparation": "Cocer las zanahorias. Aliñar con orégano, comino, sal, vinagre y aceite de oliva. Dejar enfriar en la nevera.",
     "groups": [
-      "almuerzo-entrante"
+      "cena-entrante"
     ]
   },
   "alubias-tailandesas": {
     "name": "Alubias tailandesas",
     "ingredients": [
-      "Calabaza",
-      "Alubias en conserva",
-      "Tomate natural triturado (ej. Marinete)",
-      "Cebollas",
-      "Pimiento rojo",
-      "Zanahorias",
-      "Almendras crudas o tostadas sin sal",
-      "Aceite de oliva virgen extra",
-      "Cúrcuma",
+      "Alubias cocidas",
       "Ajo",
-      "Curry",
-      "Jengibre",
-      "Cilantro fresco",
-      "Pimentón molido de la Vera"
+      "Cebollas",
+      "Zanahorias",
+      "Calabaza",
+      "Pimiento rojo",
+      "Almendras",
+      "Tomate triturado",
+      "Especias",
+      "Cilantro",
+      "Aceite de oliva virgen extra"
     ],
-    "preparation": "En una cazuela con aceite caliente, poner los 2 dientes de ajos y las 2 cebollas pelados y troceados. Remover durante un par de minutos. Añadir las 2 zanahorias y 400 g de calabaza pelada y troceada junto con el pimiento rojo troceado. Picar un puñadito pequeño de almendras en el mortero, añadir a la cazuela y sofreír unos minutos. Agregar todas las especias a la cazuela y remover un par de minutos más. Añadir 400 g de tomate triturado. Pasados unos 2-3 minutos verter el agua. Cuando rompa a hervir, añadir las alubias ya cocidas y cocer durante unos 10-12 minutos a fuego lento. Rectificar de sal. Picar el cilantro y añadir a la cazuela.",
+    "preparation": "Sofreír 2 dientes de ajo y 2 cebollas. Añadir 2 zanahorias, 400 g de calabaza y pimiento rojo, junto con almendras trituradas y las especias. Incorporar 400 g de tomate y agua, después las alubias cocidas. Cocinar a fuego suave 10-12 minutos, rectificar de sal y añadir cilantro.",
     "groups": [
       "almuerzo-principal"
     ]
@@ -479,19 +482,23 @@
       "Tomate",
       "Aguacate",
       "Aceite de oliva virgen extra",
+      "Sal",
       "Pimienta"
     ],
-    "preparation": "Pelar el aguacate, cortar en dos mitades y eliminar el hueso. Cortar en dados o láminas y añadir a la ensaladera junto con el tomate troceado (y previamente limpio). Condimentar con aceite, sal y pimienta al gusto.",
+    "preparation": "Pelar el aguacate, partirlo por la mitad y retirar el hueso. Cortar en dados o láminas y combinar con el tomate limpio y troceado. Aliñar con aceite, sal y pimienta.",
     "groups": [
       "cena-entrante"
     ]
   },
   "hamburguesa-ternera-plancha": {
-    "name": "Hamburguesa de ternera plancha",
+    "name": "Hamburguesa de ternera a la plancha",
     "ingredients": [
-      "Carne picada vacuno"
+      "Carne de ternera 100%",
+      "Aceite de oliva virgen extra",
+      "Sal",
+      "Pimienta"
     ],
-    "preparation": "Te recomiendo que la carne sea picada de carnicería, para que sea 100% carne y evitar las hamburguesas industriales. Cocinar vuelta y vuelta en una sartén caliente con un pelín de aceite, salpimentar y servir.",
+    "preparation": "Preferiblemente utilizar carne picada en carnicería, 100% carne. Cocinar en una sartén muy caliente con poco aceite, dando la vuelta y vuelta hasta el punto deseado. Condimentar y servir.",
     "groups": [
       "cena-principal"
     ]
@@ -499,26 +506,29 @@
   "guarnicion-couscous": {
     "name": "Guarnición de couscous",
     "ingredients": [
-      "Sémola de trigo integral",
-      "Aceite de oliva virgen extra"
+      "Sémola de couscous",
+      "Agua",
+      "Aceite de oliva virgen extra",
+      "Sal"
     ],
-    "preparation": "Para hervir la sémola de trigo: Misma cantidad de sémola que de agua. Truco: Un vaso lleno de agua menos un dedo y 1 vaso lleno de sémola. Hervir el agua con sal, cuando llegue a ebullición, apagar el fuego y añadir la sémola. Remover y tapar unos minutos para que la humedad hinche el grano. Aunque se tape, remover de vez en cuando hasta que el grano se vaya soltando y no esté apelmazado. Si se cocina con vitrocerámica: mantener la olla en la vitro y el calor que conserva la placa permite que el grano de couscous se haga sin quemarse. Añadir un chorreoncito de aceite de oliva para ayudar a soltar el grano.",
+    "preparation": "Utilizar la misma cantidad de sémola y agua. Hervir el agua con sal, apagar el fuego, añadir la sémola, remover y tapar. Remover de vez en cuando hasta que quede suelto y añadir aceite de oliva.",
     "groups": [
       "almuerzo-entrante"
     ]
   },
   "merluza-salsa-pimiento-rojo": {
-    "name": "Merluza en salsa de pimiento rojo",
+    "name": "Merluza con salsa de pimiento rojo",
     "ingredients": [
       "Merluza",
-      "Tomate",
-      "Pimiento rojo",
-      "Cebollas",
-      "Aceite de oliva virgen extra",
       "Ajo",
-      "Pimienta"
+      "Cebolla",
+      "Pimiento rojo",
+      "Tomate",
+      "Aceite de oliva virgen extra",
+      "Pimienta blanca",
+      "Sal"
     ],
-    "preparation": "Rehogar en una sartén con un poco de aceite 2 dientes de ajo, media cebolla, un pimiento rojo grande y un tomate. Cocinar unos 10 minutos a fuego medio sin que se doren. Una vez cocinado, echar en un vaso de batidora y triturar hasta hacer una salsa. Reservar. Hacer los lomos de pescado a la plancha a fuego muy lento, para que quede jugoso, condimentar con pimienta blanca y sal. Finalmente, sírvelos añadiendo la salsa por encima.",
+    "preparation": "Sofreír 2 dientes de ajo, media cebolla, un pimiento rojo grande y tomate durante unos 10 minutos sin que se doren. Triturar para obtener la salsa. Cocinar los lomos de pescado lentamente a la plancha con pimienta blanca y sal. Servir con la salsa.",
     "groups": [
       "almuerzo-principal"
     ]
@@ -526,40 +536,41 @@
   "tortilla-espinacas-feta": {
     "name": "Tortilla de espinacas y feta",
     "ingredients": [
-      "Huevo",
       "Espinacas congeladas",
-      "Queso Feta",
+      "Huevos",
+      "Queso feta",
       "Aceite de oliva virgen extra",
+      "Sal",
       "Pimienta"
     ],
-    "preparation": "Cocer con poca agua las espinacas durante 10 minutos, escurrir bien para evitar líquido en la tortilla y saltearla previamente con un poco de aceite caliente en una sartén y condimentar. Batir los huevos y mezclar con la espinaca y el queso feta troceado en un plato. Salpimentar al gusto. Echar a la sartén caliente con aceite y cocinar la tortilla.",
+    "preparation": "Cocinar las espinacas congeladas unos 10 minutos, escurrir y saltear con aceite y condimentos. Batir los huevos, mezclar con las espinacas y el feta picado y condimentar. Cuajar la tortilla en una sartén caliente con aceite.",
     "groups": [
       "cena-principal"
     ]
   },
   "pollo-curry": {
-    "name": "Pollo al curry (Quark o queso batido)",
+    "name": "Pollo al curry",
     "ingredients": [
       "Pollo - pechuga",
-      "Quark, Skyr o queso fresco batido",
-      "Manzanas",
-      "Cebollas",
+      "Yogur o queso fresco batido",
+      "Manzana",
+      "Curry",
       "Limón",
-      "Aceite de oliva virgen extra",
-      "Pimienta",
+      "Cebolla",
       "Ajo",
-      "Curry"
+      "Aceite de oliva virgen extra",
+      "Sal"
     ],
-    "preparation": "En un cuenco, se bate el yogur con una manzana rallada, media cucharadita de curry, el zumo de limón, y sal, mezclar bien. Se añade el pollo troceado a la mezcla de yogur y se remueve para que se impregne bien. Se tapa con film transparente y se deja marinar en la nevera media hora como mínimo. Picar finamente la cebolla y el diente de ajo. Pochar en una sartén con un poco de aceite de oliva hasta que estén transparentes. Añadir el marinado a la sartén con el fuego fuerte hasta que el pollo cambie de color. Tapar y dejar cocinar a fuego bajo unos 15 minutos, removiendo de vez en cuando, hasta que la salsa esté lista.",
+    "preparation": "Batir el yogur o queso fresco batido con manzana rallada, 1/2 cucharadita de curry, zumo de limón y sal. Marinar el pollo troceado en la nevera al menos 30 minutos. Sofreír cebolla y ajo. Añadir el pollo con su marinada a fuego fuerte hasta que cambie de color. Tapar y cocinar a fuego bajo unos 15 minutos, removiendo de vez en cuando.",
     "groups": [
       "almuerzo-principal"
     ]
   },
   "picoteo-queso-salmon-ahumado": {
-    "name": "Picoteo queso y salmón ahumado",
+    "name": "Picoteo de queso y salmón ahumado",
     "ingredients": [
-      "Queso fresco de cabra",
-      "Salmón ahumado (sin azúcar añadido)"
+      "Queso",
+      "Salmón ahumado"
     ],
     "preparation": "Siempre que sea posible compra materias primas de calidad.",
     "groups": [
@@ -567,14 +578,14 @@
     ]
   },
   "alcachofas-revueltas-huevo": {
-    "name": "Alcachofas revueltas con huevo al punto",
+    "name": "Alcachofas revueltas con huevo",
     "ingredients": [
-      "Huevo",
       "Alcachofas en conserva o congeladas",
+      "Huevo",
       "Aceite de oliva virgen extra",
-      "Pimienta negra"
+      "Ajo opcional"
     ],
-    "preparation": "Si utilizas alcachofas en conserva, sólo tendrás que enjuagarlas bien con agua. Si las usas congeladas, tendrás que cocerlas previamente en agua unos minutos, según indique el paquete. En una sartén bien caliente, añadir un poco de aceite de oliva, incorporar las alcachofas y cocinar unos minutos dando vueltas cada cierto tiempo a fuego medio alto. Salpimentar. Finalmente, añadir los huevos y apagar el fuego. No remover más que lo estrictamente necesario y servir inmediatamente. NOTA: Si te gusta y te sienta bien, puedes añadir unos dientes de ajitos al principio, antes justo de añadir las alcachofas.",
+    "preparation": "Enjuagar las alcachofas en conserva o cocer previamente las congeladas. En una sartén caliente con aceite de oliva virgen extra, cocinar las alcachofas unos minutos, dándoles la vuelta, y condimentar. Añadir los huevos y apagar el fuego, removiendo lo mínimo. Servir inmediatamente. Se puede añadir ajo.",
     "groups": [
       "cena-principal"
     ]
@@ -582,19 +593,22 @@
   "marmitako-bonito": {
     "name": "Marmitako de bonito",
     "ingredients": [
+      "Bonito",
       "Patatas",
-      "Bonito fresco",
-      "Vino blanco",
-      "Cebollas",
-      "Pimiento",
-      "Aceite de oliva virgen extra",
-      "Salsa de tomate frito",
+      "Cebolla",
       "Ajo",
-      "Carne de pimiento choricero (en conserva)",
+      "Pimiento verde",
+      "Tomate",
+      "Carne de pimiento choricero",
+      "Cayena opcional",
       "Laurel",
-      "Pimentón molido de la Vera"
+      "Pimentón dulce",
+      "Vino blanco",
+      "Agua",
+      "Aceite de oliva virgen extra",
+      "Perejil"
     ],
-    "preparation": "Ponemos en una olla un chorreón de aceite de oliva. Picamos 1 cebolla pequeña y 2 dientes de ajo. Ponemos a calentar el aceite y añadimos la cebolla y los ajos, y un poco de sal. Los dejamos pochar unos 5 minutos, a fuego medio. Cortamos 1 pimiento verde en juliana fina y lo añadimos a la olla. Cocinamos el pimiento con la cebolla y los ajos un par de minutos, a fuego medio. Añadimos al sofrito 2 cucharadas de tomate frito casero, 1 cucharada de carne de pimiento choricero, 1 pimienta de cayena para darle un toque picante (si te gusta) y 1 hoja de laurel. Mezclamos todo antes de añadir el siguiente ingrediente. Añadimos al sofrito 1 cucharadita de pimentón dulce. Inmediatamente después vertemos 100 ml de vino blanco. Removemos para mezclar bien los ingredientes y cocinamos el sofrito durante 5 minutos más a fuego medio, para dejar que se evapore parte del vino. Pelamos y cortamos 400 g de patatas en trozos regulares y las añadimos al sofrito. A continuación, vertemos agua hasta cubrir las patatas, aproximadamente 700 ml. Salamos al gusto y cocinamos las patatas unos 15 minutos (el tiempo de cocción dependerá del tipo de patata que usemos). Mientras se cuecen las patatas, limpiamos una rodaja de bonito de unos 400 g. Le quitamos la piel y hacemos tacos con la carne evitando las espinas. Lo ideal es que los tacos de bonito tengan un tamaño similar al de las patatas del guiso. Comprobamos que las patatas están cocidas introduciendo un cuchillo en un trozo de patata guisada. Si el cuchillo sale con facilidad, las patatas están hechas.\n\nPonemos sobre las patatas los tacos de bonito y cocinamos el marmitako tapado un par de minutos más a fuego medio. Después, retiramos el guiso del fuego y lo dejamos reposar tapado durante 5 minutos antes de servirlo. De esta manera, el bonito terminará de hacerse con el calor residual. Servimos con un poco de perejil picado.",
+    "preparation": "Sofreír una cebolla pequeña y 2 dientes de ajo unos 5 minutos. Añadir pimiento verde, 2 cucharadas de tomate, 1 cucharada de carne de pimiento choricero, cayena opcional, laurel, pimentón dulce y 100 ml de vino blanco. Cocinar 5 minutos. Añadir 400 g de patatas, unos 700 ml de agua y sal, y cocinar unos 15 minutos. Cortar unos 400 g de bonito en dados. Cuando las patatas estén hechas, añadir el bonito, tapar 2 minutos, retirar del fuego y dejar reposar tapado 5 minutos. Servir con perejil.",
     "groups": [
       "almuerzo-principal"
     ]
@@ -603,12 +617,12 @@
     "name": "Ensaladilla de brócoli",
     "ingredients": [
       "Brócoli",
-      "Huevo",
-      "Mayonesa",
       "Cebolla morada",
-      "Bacon"
+      "Bacon",
+      "Huevo cocido",
+      "Mayonesa"
     ],
-    "preparation": "Lavar el brócoli. Rallarlo crudo, o cortarlo en trozos muy pequeños. Rallar también media cebolla morada. Mientras tanto saltear en la sartén el bacon. En una ensaladera, añadir el brócoli crudo rallado o troceado, los taquitos de bacon y el huevo cocido picadito. Por último añadir unas cucharadas de mayonesa.",
+    "preparation": "Lavar el brócoli y rallarlo en crudo o cortarlo muy pequeño. Rallar media cebolla morada. Saltear el bacon. Mezclar brócoli, bacon y huevo cocido picado y añadir varias cucharadas de mayonesa.",
     "groups": [
       "cena-principal"
     ]
@@ -616,31 +630,244 @@
   "berenjenas-rellenas-carne": {
     "name": "Berenjenas rellenas de carne",
     "ingredients": [
-      "Carne picada vacuno",
       "Berenjenas",
-      "Cebollas",
-      "Tomate natural triturado (ej. Marinete)",
-      "Aceite de oliva virgen extra",
+      "Carne picada de vacuno 100%",
       "Ajo",
-      "Queso Parmesano (DOP)",
-      "Orégano"
+      "Cebolla",
+      "Tomate natural triturado",
+      "Orégano",
+      "Pimienta",
+      "Pan integral rallado opcional",
+      "Parmesano opcional",
+      "Aceite de oliva virgen extra"
     ],
-    "preparation": "Cortamos las berenjenas longitudinalmente, les damos unos cortes en la carne sin llegar a la piel, salamos ligeramente, regamos con un poco de aceite de oliva virgen extra y las colocamos en un plato apto para microondas. Las cocinamos en el microondas durante 8 minutos a 800 W de potencia hasta que estén tiernas, dependiendo del tamaño puede ser necesario algún minuto más. Una vez tiernas, con la ayuda de una cuchara retiramos la pulpa de la berenjena y reservamos. Mientras tanto, salteamos en una sartén con aceite de oliva virgen, ajo, cebolla y unas cucharadas de tomate triturado natural (o directamente 1 tomate troceado). Sacamos las berenjenas del micro, con una cuchara extraemos la carne de la berenjena, la troceamos y añadimos al sofrito anterior. Seguimos cocinando y a continuación añadimos la carne picada de ternera y un toque de orégano y pimienta. Corregimos de sal. Cocinamos durante 10 minutos. Rellenamos las berenjenas con la mezcla de carne. Puede rallarse un poco de pan integral del día anterior para hacer una cubierta crujiente y rallamos un poquito de parmesano por encima. Colocamos las berenjenas sobre una bandeja de horno con papel vegetal, y horneamos 8-10 minutos, o hasta que gratine.\n\nNOTA: Procura que la carne picada sea 100% carne, bien de la carnicería directamente picada, o comprada en el súper pero asegurándote de los ingredientes.",
+    "preparation": "Partir las berenjenas por la mitad a lo largo, hacer cortes en la pulpa, salar ligeramente y añadir aceite. Cocinar en microondas 8 minutos a 800 W, algo más si fuera necesario. Retirar la pulpa. Sofreír ajo, cebolla y tomate natural triturado. Picar la pulpa de berenjena y añadirla. Incorporar la carne picada, orégano y pimienta y cocinar unos 10 minutos. Rellenar las pieles. Opcionalmente añadir pan integral rallado y parmesano. Hornear sobre papel 8-10 minutos hasta gratinar. Utilizar carne 100%.",
     "groups": [
       "almuerzo-principal"
     ]
   },
   "ensalada-arenque-aguacate-mostaza": {
-    "name": "Ensalada de arenque ahumado y aguacate con vinagreta de mostaza y cebolla morada",
+    "name": "Ensalada de arenque, aguacate y mostaza",
     "ingredients": [
-      "Arenque ahumado",
-      "Espinacas hojas",
+      "Espinacas",
+      "Arenque",
+      "Tomates cherry",
       "Aguacate",
-      "Tomate cherry",
+      "Aceite de oliva virgen extra",
+      "Vinagre de manzana",
+      "Mostaza",
       "Cebolla morada",
-      "Mostaza de Dijon (en grano)"
+      "Sal",
+      "Pimienta"
     ],
-    "preparation": "Colocar en primer lugar una cama de hojas de espinacas en un plato grande, sobre ella colocar los filetes de arenque (enteros o a trozos pequeños, al gusto), cortar los cherrys en mitades y colocarlos por encima. Por último añadir el aguacate en láminas, colocado en círculo alrededor del arenque y los cherry.\n\nVINAGRETA: 2 cucharadas de aceite de oliva virgen extra, 1 cucharada de vinagre manzana, 1 cucharadita de mostaza, una pizca de sal, pimienta al gusto. Añadir la cebolla en trocitos muy pequeños y mezclar los ingredientes de la vinagreta con unas varillas hasta que se emulsione. Verter sobre la ensalada al final. Dejar reposar 2-3 minutos antes de comer.",
+    "preparation": "Colocar una base de espinacas, los filetes de arenque, tomates cherry partidos por la mitad y láminas de aguacate alrededor. Para la vinagreta, mezclar 2 cucharadas de aceite de oliva virgen extra, 1 de vinagre de manzana, 1 cucharadita de mostaza, sal, pimienta y un poco de cebolla morada picada. Batir para emulsionar, verter sobre la ensalada y dejar reposar 2-3 minutos.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "brocoli-bechamel-tofu": {
+    "name": "Brócoli con bechamel de tofu Nutrimente",
+    "ingredients": [
+      "Brócoli",
+      "Tofu firme",
+      "Bebida vegetal de soja (sin azúcar añadido)",
+      "Nuez moscada",
+      "Pimienta"
+    ],
+    "preparation": "TOFU: el tofu sedoso o Silken es más alto en GOS y fructanos (FODMAPs) que el tofu firme, este se debe a que éstos son solubles en agua. El tofu firme sin embargo tiene mucha menos humedad (líquido), y por tanto menos FODMAPs. Es el tofu firme el que debes tomar. ELABORACIÓN: coloca 150 g de tofu, al que habrás eliminado el exceso de agua (se puede hacer poniéndolo unos segundos en el microondas), en un bol, junto con 60 ml de bebida vegetal o leche, 1 pizca de sal, 2 pizcas de sal de cebolla, 1 de nuez moscada y otra de pimienta blanca. Bate con la batidora de mano hasta obtener una textura muy cremosa. BRÓCOLI: Lava el brócoli bien y ponlo a cocer con agua fría. Córtala en cuatro porciones, quita las hojas, y evita que esté en el tallo para que resulte menos flatulento. Colocarla en una fuente que pueda ir al horno. Colócala en la fuente e incorpora varias cucharadas de la bechamel de tofu por encima, y gratinar al horno a 200 grados durante unos 15 minutos.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "espinacas-gambitas-bechamel-tofu": {
+    "name": "Espinacas con gambitas y bechamel de tofu",
+    "ingredients": [
+      "Espinacas congeladas",
+      "Tofu firme",
+      "Bebida vegetal de avena (sin azúcar añadido)",
+      "Gambas",
+      "Cebolleta",
+      "Nuez moscada",
+      "Pimienta"
+    ],
+    "preparation": "BECHAMEL DE TOFU: dependiendo de la consistencia y el tipo de tofu vamos a necesitar más o menos leche de soja. Por ejemplo, si usamos tofu silken o japonés necesitaremos menos leche porque la textura es más líquida. Si usamos tofu firme o extrafirme es probable que necesites más leche. Lo iremos rectificando hasta conseguir la textura que queramos. ELABORACIÓN: coloca 150 g de tofu, al que habrás eliminado el exceso de agua (se puede hacer poniéndolo unos segundos en el microondas), en un bol, junto con 60 ml de bebida vegetal o leche, 1 pizca de sal, 2 pizcas de sal de cebolla, 1 de nuez moscada y otra de pimienta blanca. Bate con la batidora de mano hasta obtener una textura muy cremosa. ESPINACAS: puedes utilizarse congeladas, en cuyo caso, únicamente tendrás que hervir 1-2 minutos en agua para descongelar. Posteriormente, en una sartén con un poco de aceite, saltea media cebolleta y añade un buen puñado de gambas descongeladas. Condimenta con pimienta y sal. A continuación, añade las espinacas bien escurridas y remueve. Sigue cocinando hasta que el agua se haya consumido por completo, esto es muy importante para evitar que luego aparezca caldo en el plato. Una vez listo, coloca las espinacas con gambas en la fuente e incorpora varias cucharadas de la bechamel de tofu por encima. Gratinar al horno a 200 grados durante unos 15 minutos.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "guarnicion-tallarines-integrales": {
+    "name": "Guarnición de tallarines integrales",
+    "ingredients": [
+      "Tallarines integrales",
+      "Aceite de oliva virgen extra",
+      "Sal"
+    ],
+    "preparation": "Hervir al dente y salpimentar, añadiendo un chorrito de aceite al final. Acompañar con el plato principal.",
+    "groups": [
+      "cena-entrante"
+    ]
+  },
+  "tofu-marinado-soja-naranja": {
+    "name": "Tofu marinado con soja y naranja",
+    "ingredients": [
+      "Tofu firme",
+      "Naranjas",
+      "Salsa de soja baja en sal",
+      "Miel",
+      "Mostaza de Dijon",
+      "Aceite de oliva virgen extra",
+      "Orégano",
+      "Pimentón dulce de la Vera"
+    ],
+    "preparation": "Lo que más nos interesa del tofu es que se impregne bien de los sabores del marinado. Lo escurrimos muy bien, incluso aplastando, para que pierda el mayor líquido posible. Lo cortamos en dados o láminas gruesas. En un bol hacemos una mezcla con el zumo de 1 naranja, 1 cucharada sopera de mostaza de Dijon, 1 cucharada de salsa de soja, 1 cucharadita de pimentón, 1 de orégano y añadimos los trozos de tofu. Lo dejaremos varias horas en la nevera (o una noche entera) para que se impregne bien. Pasado ese tiempo, ponemos una sartén al fuego con el aceite y cuando esté caliente salteamos a fuego fuerte los trozos de tofu, escurridos de la marinada pero reservamos el líquido, y añadiendo un hilito de miel de caña. Vamos dándoles vueltas hasta que esté bien dorado, en ese momento le echamos por encima el resto de la marinada y dejamos que reduzca todo junto, moviendo la sartén si es necesario. Una vez la sartén está seca, apagamos el fuego y el tofu estará listo para comer. También podemos dejarlo enfriar y guardarlo en la nevera para añadirlo a algún plato en otro momento.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "ensalada-alemana-patata": {
+    "name": "Ensalada alemana de patata",
+    "ingredients": [
+      "Patatas",
+      "Aceite de oliva virgen extra",
+      "Vinagre de manzana",
+      "Mostaza de Dijon",
+      "Pepinillos",
+      "Cebolla morada"
+    ],
+    "preparation": "PATATAS: Se ponen las patatas en una olla o cazuela y se cubren con agua. Se añade al agua una cucharadita de vinagre y otra de sal. El agua tiene que cubrir al menos 3 o 4 dedos por encima de las patatas, pues a medida que cuecen irán evaporando parte del agua. Se ponen a fuego máximo y cuando comience a hervir el agua, se baja el fuego a temperatura media. Se mantiene hirviendo a fuego medio durante 30 minutos. Es importante que cuezan a una temperatura constante y no muy alta. Cuando pase el tiempo, pinchar con un alfiler; si entra suavemente, la patata estará perfectamente cocida. Es preferible pincharla con una aguja o alfiler pues si se pincha con un cuchillo u otro cubierto podría entrar agua en la patata o abrirse la piel. Una vez enfriadas, pelar la piel con la mano o utilizando un cuchillo. CEBOLLA MORADA: Saltear la cebolla morada picada finamente en una sartén con un poco de aceite durante 1 minuto. Cortar en rodajas los pepinillos, y mezclar en una ensaladera junto con las patatas y la cebolla morada al dente. VINAGRETA: En un cuenco, batir 2 cucharadas de mostaza, 2 de aceite de oliva, 2 de vinagre y un pelín del caldo de los pepinillos. Incorporar a la ensalada, remover bien, y refrigerar antes de comer.",
+    "groups": [
+      "cena-entrante"
+    ]
+  },
+  "boquerones-marinados-plancha": {
+    "name": "Boquerones marinados a la plancha",
+    "ingredients": [
+      "Boquerones frescos",
+      "Perejil",
+      "Eneldo",
+      "Romero",
+      "Vinagre de manzana",
+      "Pimienta",
+      "Limón"
+    ],
+    "preparation": "Limpiamos los boquerones retirando la cabeza y la espina central. Ponemos los boquerones bajo el grifo para eliminar los restos de sangre, secamos con papel de cocina y los dejamos abiertos como si de un libro se tratara, preparados así para congelar durante al menos 72 horas, para destruir la posible infestación de Anisakis. Sacamos del congelador. En un bol, mezcla el zumo de 1 limón, las pimientas en grano, el eneldo y el vinagre. Introduce en este marinado los lomos de boquerón y la ralladura del limón durante al menos 1 hora. Posteriormente, colocados todos los lomos sobre una sartén caliente con un poco de aceite, los cocinamos vuelta y vuelta, que queden completamente hechos.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "crema-calabaza": {
+    "name": "Crema de calabaza",
+    "ingredients": [
+      "Calabaza",
+      "Batata o boniato",
+      "Patatas",
+      "Cebolleta",
+      "Zanahorias",
+      "Aceite de oliva virgen extra",
+      "Nuez moscada",
+      "Pimienta"
+    ],
+    "preparation": "Quitar la cáscara de la calabaza, evitando eliminar también su carne. Si es tipo cacahuete, puedes utilizar aproximadamente la mitad. Cortar 2-3 zanahorias, 1 cebolla, 1 boniato y 1 patata grandes y echarlos en una olla con agua hirviendo. Salpimentar. Utilizar el mínimo posible de agua en la cocción para evitar desecharla luego. Cocer durante 10-12 minutos y apagar el fuego. Para tener la textura ideal, sacar todo el caldo restante de cocción a un bote. Triturar con muy poco líquido y cuando esté bien triturado, ir añadiendo caldo hasta tener la textura deseada y rectificar de sal al final. Si sobra caldo, se conserva en un bote de vidrio bien cerrado en la nevera, como base para otro guiso, por ejemplo como base para cocinar las legumbres. Batir con la batidora mientras se añade un buen chorretón de aceite, para que quede más untuosa la crema. Condimentar con pimienta blanca y nuez moscada.",
+    "groups": [
+      "cena-entrante"
+    ]
+  },
+  "tortilla-gambas-jugosa": {
+    "name": "Tortilla de gambas jugosa",
+    "ingredients": [
+      "Huevos",
+      "Gambas",
+      "Aceite de oliva virgen extra",
+      "Pimienta"
+    ],
+    "preparation": "En el caso en que sean gambas frescas, hay que pelarlas con cuidado para que no queden restos duros de las patas o la cáscara. Si son gambas congeladas lo más probable es que vengan ya peladas. En una sartén pon un chorrecón de aceite de oliva y añade las gambas. Cocínalas hasta que veas que han cambiado de color y su carne se ha vuelto más blanca. Serán 2-3 minutos. En un cuenco aparte bate los huevos (3-4 para 2 personas) con una pizca de sal y un poco de pimienta. Cuando estén hechas las gambas las llevas al recipiente con el huevo y mezclas bien. Pon en la sartén un poco de aceite y vierte la mezcla del huevo y las gambas. Cuando veas que está cuajada por una de las caras y que los bordes comienzan a separarse de la sartén, es el momento de darle la vuelta. Usa un plato más grande que la sartén o un vuelca tortillas y dale la vuelta con cuidado. Cuando el interior de la tortilla esté a tu gusto, sácala al plato final.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "ensalada-turca-pepino-yogur": {
+    "name": "Ensalada turca de pepino y yogur",
+    "ingredients": [
+      "Quark, Skyr o queso fresco batido",
+      "Pepinos",
+      "Aceite de oliva virgen extra",
+      "Hierbabuena",
+      "Limón",
+      "Pimienta negra",
+      "Ajo"
+    ],
+    "preparation": "Pela el pepino, ábrelo y extrae la zona central de pepitas, ya que si se añaden a la salsa podría quedar muy líquida. Rállalo muy finito y déjalo escurriendo en un colador. Al cabo de unos 5 minutos, presiona para que termine de escurrir su agua. Mezcla el yogur entero espeso, el pepino escurrido, 2 cucharadas de aceite, zumo de medio limón, 1 diente de ajo opcional picadito y 2 cucharaditas de menta picada y un poco de sal y pimienta. Deja el bol reposando en la nevera, tapado, durante al menos 30 minutos (aunque si lo dejas un par de horas, estará más fresco y denso). Conservar en un bote de cristal bien cerrado en la nevera durante un máximo de 3-4 días.",
+    "groups": [
+      "cena-entrante"
+    ]
+  },
+  "rollitos-vietnamitas-langostino-verduras": {
+    "name": "Rollitos vietnamitas de langostino y verduritas",
+    "ingredients": [
+      "Langostino",
+      "Obleas de arroz",
+      "Puerros",
+      "Salsa de soja baja en sal",
+      "Germinados variados (soja, alfalfa, brócoli...) ",
+      "Zanahorias",
+      "Limón",
+      "Lechuga",
+      "Pepinos"
+    ],
+    "preparation": "Cortar en juliana fina la lechuga, el pepino y las zanahorias y ponerlos juntos en un bol. Pelar los langostinos y trocearlos sobre el bol. Añade los brotes de soja. Sazona. Ralla la cáscara del limón y añade también el zumo usando un colador para que no caigan las pepitas. Echa una cucharada de salsa de soja. Mezcla todo muy bien. Por otro lado, introduce las obleas en un bol suficientemente grande y lleno de agua. Tras 2-3 minutos se habrá hidratado suficiente la oblea y se doblará fácilmente. Sácala y extiéndela sobre un paño bien limpio con mucho cuidado para que no se rompan. Seca un poco con un papel de cocina la superficie de la oblea. A continuación, pon un poco de relleno en el centro de la oblea hidratada. Cierra el rollito enrollando la parte superior al relleno, dobla los laterales hacia dentro y termina de enrollar. Puedes acompañar de salsa de soja.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "escalivada": {
+    "name": "Escalivada",
+    "ingredients": [
+      "Berenjenas",
+      "Pimiento",
+      "Cebollas",
+      "Tomate",
+      "Aceite de oliva virgen extra"
+    ],
+    "preparation": "Lavamos y secamos la berenjena, el pimiento y los tomates. Retiramos la capa exterior de las cebollas y la de la cabeza de ajos. Pinchamos la berenjena con un cuchillo afilado para que no reviente con el calor del horno. Colocamos todas las verduras en una bandeja para horno, excepto los tomates, y las regamos con un poco de aceite de oliva virgen extra. Introducimos la bandeja en el horno precalentado a 170 ºC durante una hora. Volteamos las verduras, incorporamos los tomates a la bandeja y asamos 30 minutos más. Dependiendo del tamaño de las verduras, especialmente de las cebollas, el tiempo puede necesitar ajustes. Comprobamos que estén tiernas las verduras antes de retirar la bandeja del horno y dejamos enfriar para poder quitar la piel y pepitas al pimiento y a la berenjena. Quitamos las capas exteriores de las cebollas y las troceamos. También sacamos, presionando ligeramente, los dientes de ajo de la cabeza asada. Vamos disponiendo todos los ingredientes en un plato, al que añadiremos una pizca de sal gruesa marina y los jugos del asado. Hay quien también le añade unas gotas de vinagre.",
+    "groups": [
+      "cena-entrante"
+    ]
+  },
+  "arroz-negro-sepia-gambas": {
+    "name": "Arroz negro con sepia y gambas",
+    "ingredients": [
+      "Sepia o choco",
+      "Arroz integral",
+      "Pimiento",
+      "Gambas",
+      "Tomate",
+      "Cebollas",
+      "Aceite de oliva virgen extra",
+      "Tinta de calamar",
+      "Vino blanco",
+      "Ajo"
+    ],
+    "preparation": "En una sartén caliente con un chorrito de aceite, doramos la sepia previamente cortada en trozos. Añadimos un diente de ajo, media cebolla y el pimiento verde cortado. Cocinamos unos minutos, agregamos 1 tomate picado o medio vasito de tomate triturado de lata. Incorporamos un chorrito de vino blanco. Cocinamos durante 3-4 minutos para reducir el alcohol. Ahora añadimos el arroz integral y le damos unas vueltas para que sofría con lo anterior. En este momento, añadimos la tinta, previamente disuelta en un vaso con un poco de agua. Añadimos el caldo de pescado o simplemente agua (3 partes de líquido por cada parte de arroz). Una vez que hierva, bajamos el fuego al mínimo y continuamos cocinando unos 35 minutos, o hasta que esté tierno. Cuando esté casi seco, colocamos las gambas por encima y dejamos la paella que acabe de secar. NOTA: al demandar el arroz integral mayor tiempo de cocción, puedes hervirlo aparte y, por otro lado, hacer el sofrito de verduras con el pescado, para finalmente unirlo todo. NOTA: ver tiempo de cocción del arroz, pues es bastante superior al arroz blanco. En olla normal unos 35 minutos, en olla exprés unos 15 minutos.",
+    "groups": [
+      "cena-principal"
+    ]
+  },
+  "fajitas-pollo-tortilla-casera": {
+    "name": "Fajitas de pollo (con tortilla casera)",
+    "ingredients": [
+      "Harina de maíz",
+      "Tomate",
+      "Pollo - pechuga",
+      "Lechuga",
+      "Pimiento",
+      "Cebollas",
+      "Aceite de oliva virgen extra",
+      "Comino molido",
+      "Orégano",
+      "Cilantro molido",
+      "Paprika o pimentón picante"
+    ],
+    "preparation": "TORTILLA MEXICANA: Mezclar en un bol 200 gramos de harina de maíz (la que pone \"nixtamalizada\", si no la encuentras, compra entonces harina de maíz precocido) con 285 ml de agua tibia y una pizca de sal. Mezcla todo bien con la ayuda de un tenedor o con la propia mano, y luego deja reposar la masa unos 15 minutos para que se seque un poco. Mientras precalienta la sartén a fuego alto. Haz una bolita de unos 40 gramos y, entre dos trozos de papel de cocina, chafla (con la prensa para tortillas o con el libro y el rodillo) hasta que quede de unos 12 cm aproximadamente. Quita suavemente el papel de cocina superior y luego con mucho cuidado termina de desprender la tortita del papel inferior. Si la tortilla se queda muy pegada al papel y se rompe en exceso por quedarse pegada, es porque tenéis que añadirle un pelín de harina más. Luego echad ya la tortilla a la sartén caliente. Veréis que sale humo (es el vapor de agua que se escapa al cocinarse) y mientras chafla la siguiente tortilla. Ahora dadle la vuelta a la tortilla que tenéis en la sartén, y dejadla unos treinta segundos sobre el fuego. Luego dadle unos pequeños toques (para que se aplaste contra la sartén) con la espátula plana, para que se creen unas burbujas de aire. Ahora girad la tortilla por segunda vez y veréis cómo al cabo de unos diez segundos la tortilla comienza a hincharse. Si no lo hace, ayudadla dándole más toques con la espátula. Sacad la tortilla cuando se haya hinchado del todo y ponedla en un plato cubierta con un trapo, para que el vapor termine de cocinarlas y ponerlas blanditas. RELLENO: Cortar el pollo y la verdura en tiras. Sofreír en la sartén con aceite y cocinar hasta que el pollo esté hecho (aconsejo que la verdura esté más bien crujiente, pero hazlo a tu gusto). Condimentar con comino y cilantro molido, pimentón y orégano al gusto. Rellenar las tortillas con la mezcla. Si se quiere crujiente, se puede dar un toque de horno.",
     "groups": [
       "cena-principal"
     ]

@@ -178,5 +178,74 @@
         ]
       }
     ]
+  },
+  "week-3": {
+    "id": "week-3",
+    "name": "Semana 3",
+    "description": "Plan de cenas para ir probando del documento original.",
+    "days": [
+      {
+        "day": 1,
+        "name": "Lunes",
+        "comida": [],
+        "cena": [
+          "brocoli-bechamel-tofu",
+          "espinacas-gambitas-bechamel-tofu"
+        ]
+      },
+      {
+        "day": 2,
+        "name": "Martes",
+        "comida": [],
+        "cena": [
+          "guarnicion-tallarines-integrales",
+          "tofu-marinado-soja-naranja"
+        ]
+      },
+      {
+        "day": 3,
+        "name": "Miércoles",
+        "comida": [],
+        "cena": [
+          "ensalada-alemana-patata",
+          "boquerones-marinados-plancha"
+        ]
+      },
+      {
+        "day": 4,
+        "name": "Jueves",
+        "comida": [],
+        "cena": [
+          "crema-calabaza",
+          "tortilla-gambas-jugosa"
+        ]
+      },
+      {
+        "day": 5,
+        "name": "Viernes",
+        "comida": [],
+        "cena": [
+          "ensalada-turca-pepino-yogur",
+          "rollitos-vietnamitas-langostino-verduras"
+        ]
+      },
+      {
+        "day": 6,
+        "name": "Sábado",
+        "comida": [],
+        "cena": [
+          "escalivada",
+          "arroz-negro-sepia-gambas"
+        ]
+      },
+      {
+        "day": 7,
+        "name": "Domingo",
+        "comida": [],
+        "cena": [
+          "fajitas-pollo-tortilla-casera"
+        ]
+      }
+    ]
   }
 }
